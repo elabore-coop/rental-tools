@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="wishlist_frontend" inherit_id="web.assets_frontend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/product_rental_bookings/static/src/js/main.js" />
+                <link rel="stylesheet" href="/product_rental_bookings/static/src/css/index.css" />
+                <link rel="profile" href="http://gmpg.org/xfn/11" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+                <script src="http://code.jquery.com/jquery-1.9.1.js" />
+                <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" />
+            </xpath>
+        </template>
+
+
+        <template id="header_company_menu_11" inherit_id="website.navbar_nav" name="Search Product">
+            <xpath expr="//ul[@id='top_menu']/t" position="before">
+                <li class="nav-item search_product">
+                    <a href="/search-product">Book Product</a>
+                </li>
+            </xpath>
+        </template>
+
+        <template id="product_search" name="Product Search">
+            <t t-set="no_footer">1</t>
+            <t t-call="website.layout">
+                <t t-if="error">
+                    <input type="hidden" t-att-value="error" id="error" />
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Rent Product not available right Now</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <div id="wrap" class="oe_structure oe_empty">
+                    <div id="myCarousel1513682046664" class="carousel slide s_banner" data-interval="1000000" style="height: 450px;">
+                        <ol class="carousel-indicators"></ol>
+                        <div class="carousel-inner">
+                            <div class="item bg-alpha oe_img_bg">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <form class="form" name="bookingform" id="bookingform" action="/booking_form" method="post">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <input type="hidden" name="lang" value="en" />
+                                                <center>
+                                                    <div class="search-box">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="col-md-8">
+                                                                    <lable>Based On</lable>
+                                                                    <select class="form-control" id='based_on' name='based_on' required="1">
+                                                                        <t t-if="post_data.get('based_on') == 'per_day'">
+                                                                            <option t-att-value="per_day" t-att-selected="per_day">
+                                                                                Days
+                                                                            </option>
+                                                                            <option value="per_hour">Hours</option>
+                                                                            <option value="per_session">Session</option>
+                                                                        </t>
+                                                                        <t t-if="post_data.get('based_on') == 'per_hour'">
+                                                                            <option t-att-value="per_hour" t-att-selected="per_hour">
+                                                                                Hours
+                                                                            </option>
+                                                                            <option value="per_day">Days</option>
+                                                                            <option value="per_session">Session</option>
+                                                                        </t>
+                                                                        <t t-if="post_data.get('based_on') == 'per_session'">
+                                                                            <option t-att-value="per_session" t-att-selected="per_session">
+                                                                                Session
+                                                                            </option>
+                                                                            <option value="per_day">Days</option>
+                                                                            <option value="per_hour">Hours</option>
+                                                                        </t>
+
+                                                                        <t t-if="not post_data.get('based_on') or post_data.get('based_on') not in ['per_day', 'per_hour', 'per_session']">
+                                                                            <option t-if="request.env['ir.config_parameter'].sudo().get_param('enabled_day_rent')" value="per_day">Days</option>
+                                                                            <option t-if="request.env['ir.config_parameter'].sudo().get_param('enabled_hour_rent')" value="per_hour">Hours</option>
+                                                                            <option t-if="request.env['ir.config_parameter'].sudo().get_param('enabled_session_rent')" value="per_session">Session</option>
+                                                                        </t>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12" id="session_selection" style="display:None;">
+                                                                <div class="col-md-8">
+                                                                    <lable>Session</lable>
+                                                                    <t t-set="session_type" t-value="request.env['session.config'].sudo().search([])" />
+                                                                    <select class="form-control" id='session_type' name='session_type' required="1">
+                                                                        <option value="">Select Session
+                                                                        </option>
+                                                                        <t t-foreach="session_type" t-as="session_type">
+                                                                            <t t-if="post_data.get('session_type')">
+                                                                                <option t-att-value="session_type.id" t-att-selected="session_type.id == int(post_data.get('session_type'))">
+                                                                                    <t t-esc="session_type.name" />
+                                                                                </option>
+                                                                            </t>
+                                                                            <t t-else="">
+                                                                                <option t-att-value='session_type.id'>
+                                                                                    <t t-esc="session_type.name" />
+                                                                                </option>
+                                                                            </t>
+                                                                        </t>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12" id="for_day_selection">
+                                                                <div class="col-md-8">
+                                                                    <lable>From Date</lable>
+                                                                    <input id="date_from" class="form-control" placeholder="dd-mm-yyyy" required="1" t-att-value="post_data.get('date_from')" name="date_from" type="text" size="20" />
+                                                                </div>
+                                                                <div class="col-md-8" id="to_date">
+                                                                    <lable>To Date</lable>
+                                                                    <input id="date_to" class="form-control" placeholder="dd-mm-yyyy" required="1" t-att-value="post_data.get('date_to')" name="date_to" type="text" size="20" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12" id="for_hour_selection" style="display:None;">
+                                                                <div class="col-md-8">
+                                                                    <lable>From DateTime</lable>
+                                                                    <input id="datetime_from" class="form-control" placeholder="dd-mm-yyyy HH:MM" t-att-value="post_data.get('datetime_from')" name="datetime_from" type="text" size="20" />
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <lable>To DateTime</lable>
+                                                                    <input id="datetime_to" class="form-control" placeholder="dd-mm-yyyy HH:MM" t-att-value="post_data.get('datetime_to')" name="datetime_to" type="text" size="20" />
+                                                                </div>
+                                                            </div>
+                                                            <br />
+                                                            <div class="col-md-12">
+                                                                <div class="col-md-8">
+                                                                    <lable>Type</lable>
+                                                                    <t t-set="class_type" t-value="request.env['product.category'].sudo().search([])" />
+                                                                    <select class="form-control" id='class_type' name='class_type' required="1">
+                                                                        <option value="">Select Product Categoty
+                                                                        </option>
+                                                                        <t t-foreach="class_type" t-as="class_type">
+                                                                            <t t-if="post_data.get('class_type')">
+                                                                                <option t-att-value="class_type.id" t-att-selected="class_type.id == int(post_data.get('class_type'))">
+                                                                                    <t t-esc="class_type.name" />
+                                                                                </option>
+                                                                            </t>
+                                                                            <t t-else="">
+                                                                                <option t-att-value='class_type.id'>
+                                                                                    <t t-esc="class_type.name" />
+                                                                                </option>
+                                                                            </t>
+                                                                        </t>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="col-md-8">
+                                                                    <lable>Location</lable>
+                                                                    <t t-set="location" t-value="request.env['stock.location'].sudo().search([('usage', '=', 'internal')])" />
+                                                                    <select name="location" id="location" class="form-control full-width" required="1">
+                                                                        <t t-foreach="location" t-as="location_id">
+                                                                            <t t-if="post_data.get('location')">
+                                                                                <option t-att-value="location_id.id" t-att-selected="location_id.id == int(post_data.get('location'))">
+                                                                                    <t t-esc="location_id.complete_name" />
+                                                                                </option>
+                                                                            </t>
+                                                                            <t t-else="">
+                                                                                <option t-att-value='location_id.id'>
+                                                                                    <t t-esc="location_id.complete_name" />
+                                                                                </option>
+                                                                            </t>
+                                                                        </t>
+                                                                    </select>
+
+                                                                </div>
+                                                                <div class="col-md-3"></div>
+                                                                <div class="col-md-3"></div>
+                                                            </div>
+                                                            <div class="col-md-12"></div>
+                                                        </div>
+                                                        <center>
+                                                            <div class="" style="margin-top:10px;">
+                                                                <button class="btn btn-lg" id="search_button" name="search_button" style="background-color: #008CBA;border-color: #008CBA;">
+                                                                    Search
+                                                                </button>
+                                                            </div>
+                                                        </center>
+                                                    </div>
+                                                </center>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <t t-if="product_id">
+                    <div class="">
+                        <div id="result_div" class="listing-car-items col vc_custom_1448532088457" align="center">
+                            <div class="container">
+                                <div class="card-deck row">
+                                    <t t-foreach="product_id" t-as="product_id">
+                                        <div class="col-md-3">
+                                            <form class="myre card" name="qutation_create" t-att-id="product_id.id" style="max-height: 281px;margin-bottom: 10px;" t-att-action="'/booking_form/create_quotation/%s' % slug(product_id)" method="post">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <input type="hidden" t-att-value="product_id.id" name="product_id_text" class="product_id_text" />
+                                                <button class="btn book_now" type="submit" name="book_now" style="background-color: white;">
+                                                    <div class="card-body">
+                                                        <span t-field="product_id.image_1920" class="card-img-top" t-options="{'widget': 'image','style':'width: 100px;height: 100px;'}" />
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">
+                                                                <t t-esc="product_id.name" />
+                                                            </h5>
+                                                            <span class="card-text">
+                                                                <span>
+                                                                    <t t-if="product_id.rental_amount and request.session['based_on'] == 'per_day'">
+                                                                        <b>
+                                                                            <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                                            <t t-esc="product_id.rental_amount" />
+                                                                            /Day
+                                                                        </b>
+                                                                    </t>
+                                                                </span>
+                                                            </span>
+                                                            <p class="card-text">
+                                                                <span>
+                                                                    <t t-if="product_id.rental_amount_per_hour and request.session['based_on'] == 'per_hour'">
+                                                                        <b>
+                                                                            <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                                            <t t-esc="product_id.rental_amount_per_hour" />
+                                                                            /Hour
+                                                                        </b>
+                                                                    </t>
+                                                                </span>
+                                                            </p>
+                                                            <p class="card-text">
+                                                                <span>
+                                                                    <t t-if="product_id.rental_amount_per_hour and request.session['based_on'] == 'per_session'">
+                                                                        <b>
+                                                                            <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                                            <t t-esc="product_id.rental_amount_per_session" />
+                                                                            /Session
+                                                                        </b>
+                                                                    </t>
+                                                                </span>
+                                                            </p>
+
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                                <br />
+                                            </form>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="rental_product" name="Rental Product">
+            <t t-call="website.layout">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-3 mb8"></div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2 text-right"></div>
+                </div>
+                <input type="hidden" t-att-value="product_id.id" class="product_id" />
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-3 col-lg-4 col-lg-offset-1" id="product_details">
+                        <form action="/product_cart_update" class="js_add_cart_variants" method="POST" onkeydown="return event.key != 'Enter';">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <input type="hidden" t-att-value="product_id.id" class="product_id_cart" name="product_id_cart" />
+
+                            <div>
+                                <t t-placeholder="select">
+                                    <input type="hidden" class="product_id" name="product_id" t-att-value="product_id.id" />
+                                </t>
+                                <table style="width:150%;">
+                                    <tbody class="font-color">
+                                        <tr>
+                                            <td>
+                                                <span itemprop="image" t-field="product_id.image_1920" t-options="{'widget': 'image', 'class': 'product_detail_img', 'alt-field': 'name', 'zoom': 'image'}" />
+                                            </td>
+                                            <td>
+                                                <h3 itemprop="name" t-field="product_id.name">Product Name</h3>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:70px;">
+                                            <td>Date From</td>
+                                            <td class='date_from'>
+                                                <t t-esc="request.session['date_from']" />
+                                            </td>
+                                            <td>Date To</td>
+                                            <td class='date_to'>
+                                                <t t-esc="request.session['date_to']" />
+                                            </td>
+                                        </tr>
+                                        <tr style="height:70px;">
+                                            <td>Based On</td>
+                                            <td class="price_based">
+                                                <select class="form-control rate_option" readonly='1' style="pointer-events: none;">
+                                                    <t t-if="request.session['based_on'] == 'per_day'">
+                                                        <option value="per_day">
+                                                            Days
+                                                        </option>
+                                                    </t>
+                                                    <t t-if="request.session['based_on'] == 'per_hour'">
+                                                        <option value="per_hour">
+                                                            Hours
+                                                        </option>
+                                                    </t>
+                                                    <t t-if="request.session['based_on'] == 'per_session'">
+                                                        <option value="per_session">
+                                                            Session
+                                                        </option>
+                                                    </t>
+
+                                                </select>
+                                            </td>
+                                            <td class="total_hours">Total Hours</td>
+                                            <td class="total_hours">
+                                                <input class='form-control kilometer enter_hour' id="entered_hour" type="text" readonly="1" t-att-value="total_hours" name="enter_hour" />
+                                            </td>
+                                            <td class="total_days">Total Days</td>
+                                            <td class="total_day" name="total_day"></td>
+                                        </tr>
+                                        <tr style="height:70px;" class="total_days">
+                                            <td class="total_days">Rate Per Day</td>
+                                            <td class="total_days" style="height:30px;">
+                                                <lable class="cls_per_day_amount">
+                                                    <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                    <t t-esc="product_id.rental_amount" />
+                                                </lable>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:70px;" class="total_hour">
+                                            <t t-if="request.session['based_on'] == 'per_session'">
+                                                <td class="enter_hour">Rate Per Session</td>
+                                                <td class="enter_hour" style="height:30px;">
+                                                    <lable class="cls_per_day_amount">
+                                                        <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                        <t t-esc="product_id.rental_amount_per_session" />
+                                                    </lable>
+                                                </td>
+                                                <td>Session</td>
+                                                <td style="height:30px;">
+                                                    <t t-esc="request.session['session_type']" />
+                                                </td>
+                                            </t>
+                                            <t t-else="">
+                                                <td class="enter_hour">Rate Per Hour</td>
+                                                <td class="enter_hour" style="height:30px;">
+                                                    <lable class="cls_per_day_amount">
+                                                        <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                        <t t-esc="product_id.rental_amount_per_hour" />
+                                                    </lable>
+                                                </td>
+                                            </t>
+
+                                        </tr>
+                                        <tr style="height:70px;">
+                                            <td>Total Amount</td>
+                                            <td>
+                                                <t t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                <span class="calculate_total" />
+                                            </td>
+
+                                            <td class="quantity_needed">Enter quantity</td>
+                                            <td class="quantity_needed">
+                                                <input class='form-control qty_needed' type="text" name="qty_needed" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <t t-if=" not request.env.user._is_public()">
+                                    <button class="btn btn-primary btn-lg mt8 js_check_product a-submit" type="submit" name="update_cart">Add To Cart
+                                    </button>
+                                </t>
+                                <t t-if="request.env.user._is_public()">
+                                    <a class="btn btn-primary" t-att-href="'/web/login?redirect=/booking_form/create_quotation/%s' % slug(product_id)">
+                                        Sign in
+                                    </a>
+                                </t>
+                            </div>
+                        </form>
+                        <div class="o_not_editable"></div>
+                        <hr />
+                        <p class="text-muted">
+                            30-day money-back guarantee
+                            <br />
+                            <br />
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="rental_order" name="Rental Cart Lines">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True" />
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Rental Order</t>
+                </t>
+                <div id="wrap">
+                    <div class="container oe_website_sale">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 oe_cart">
+                                <table class="table table-striped table-condensed js_cart_lines" id="cart_product" style="margin-top:35px;">
+                                    <thead style="background: lavender;">
+                                        <tr>
+                                            <th>Order Number</th>
+                                            <th>From Date</th>
+                                            <th>To Date</th>
+                                            <th>State</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="order_id" t-as="order">
+                                            <form name="Rental Order Form" id="rental_order_form" action="/view_cart" method="post">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                                <tr>
+                                                    <td t-if="order.res_number">
+                                                        <div>
+                                                            <strong t-esc="order.res_number" />
+                                                        </div>
+                                                    </td>
+                                                    <td t-if="order.from_date">
+                                                        <div>
+                                                            <strong t-esc="order.from_date" />
+                                                        </div>
+                                                    </td>
+                                                    <td t-if="order.to_date">
+                                                        <div>
+                                                            <strong t-esc="order.to_date" />
+                                                        </div>
+                                                    </td>
+                                                    <td t-if="order.state">
+                                                        <div>
+                                                            <strong t-esc="order.state" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="submit" name="View Cart" value="View Cart" class="btn-info" />
+                                                    </td>
+                                                    <input type="hidden" t-att-value="order.id" name="rental_order" class="order" />
+                                                </tr>
+                                            </form>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="checkout_process" name="Checkout Process">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container oe_website_sale" style="height: 450px;">
+                        <div class="main_content" style="position: relative;margin-top:50px;">
+                            <div style="float:left;width:60%;padding: 10px;">
+                                <t t-call="product_rental_bookings.payment" />
+                            </div>
+                            <div style="float:left;width:40%;margin-top:50px;">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total Days/Hour</th>
+                                            <th>Quantity</th>
+                                            <th>Sub Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="website_rental_order.product_order_lines_ids" t-as="product_line">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="product_line.product_id.name" />
+                                                </td>
+                                                <td>
+                                                    <t t-if="product_line.price_based == 'per_day'">
+                                                        <span t-esc="int(product_line.enter_days)" />
+                                                        Days
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="product_line.enter_hour" />
+                                                        Hours
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="product_line.qty_needed" />
+                                                </td>
+                                                <td>
+                                                    <!--                                                    <t t-set="subtotal" t-value="product_line.sub_total * product_line.qty_needed"/>-->
+                                                    <span t-esc="product_line.sub_total" />
+                                                    <span t-esc="request.env.user.company_id.currency_id.symbol" />
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <div style="width: 100%;">
+                                    <span style="float:right;">
+                                        <strong>Total:-</strong>
+                                        <!--                                        <t t-esc="subtotal"/>AAA-->
+                                        <span t-esc="website_rental_order.total_amount" />
+                                        <span t-esc="request.env.user.company_id.currency_id.symbol" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="payment" name="Payment">
+            <t t-set="additional_title">Shop - Select Payment Acquirer</t>
+            <t t-set="no_footer">1</t>
+            <t>
+                <div class="col-xl">
+                    <div class="wizard">
+                        <div class="progress-rental-wizard">
+                            <a class="no-decoration">
+                                <div id="wizard-step10" class="progress-rental-wizard-step complete">
+                                    <div class="progress-rental-wizard-bar d-none d-md-block" />
+                                    <span class="progress-rental-wizard-dot d-none d-md-inline-block"></span>
+                                    <div class="text-center progress-rental-wizard-steplabel">
+                                        Review Order
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="no-decoration">
+                                <div id="wizard-step40" class="progress-rental-wizard-step active">
+                                    <div class="progress-rental-wizard-bar d-none d-md-block" />
+                                    <span class="progress-rental-wizard-dot d-none d-md-inline-block"></span>
+                                    <div class="text-center progress-rental-wizard-steplabel">
+                                        Confirm Order
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            <div id="wrap">
+                <div class="container oe_website_sale py-2">
+                    <div class="row">
+                        <div class="col-12" t-if="errors">
+                            <t t-foreach="errors" t-as="error">
+                                <div class="alert alert-danger" t-if="error" role="alert">
+                                    <h4>
+                                        <t t-esc="error[0]" />
+                                    </h4>
+                                    <t t-esc="error[1]" />
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-12 col-xl order-xl-1 oe_cart">
+                            <div id="payment_method" class="mt-3" t-if="(acquirers or tokens) and website_rental_order.total_amount">
+                                <h3 class="mb24">Pay with</h3>
+                                <t t-call="payment.payment_tokens_list">
+                                    <t t-set="mode" t-value="'payment'" />
+                                    <t t-set="submit_txt">Pay Now</t>
+                                    <t t-set="icon_right" t-value="1" />
+                                    <t t-set="icon_class" t-value="'fa-chevron-right'" />
+                                    <t t-set="submit_class" t-value="'btn btn-primary'" />
+                                    <t t-set="pms" t-value="tokens" />
+                                    <t t-set="form_action" t-value="'/rental/payment/validate'" />
+                                    <t t-set="prepare_tx_url" t-value="'/rental/payment/transaction/'" />
+                                    <t t-set="partner_id" t-value="partner" />
+
+                                    <t t-set="back_button_icon_class" t-value="'fa-chevron-left'" />
+                                    <t t-set="back_button_txt" t-value="'Return to Cart'" />
+                                    <t t-set="back_button_class" t-value="'btn btn-secondary'" />
+                                    <t t-set="back_button_link" t-value="'/view_cart'" />
+                                </t>
+                            </div>
+                            <div t-if="not acquirers" class="mt-2">
+                                <a role="button" class="btn-link" groups="base.group_system" t-attf-href="/web#return_label=Website&amp;action=#{payment_action_id}">
+                                    <i class="fa fa-arrow-right"></i>
+                                    Add payment acquirers
+                                </a>
+                            </div>
+                            <div class="js_payment mt-3" t-if="not website_rental_order.total_amount" id="payment_method">
+                                <form action="/rental/payment/validate" method="post" class="float-right">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                    <button class="btn btn-primary" type="submit" name="payment">
+                                        <span class="fa fa-chevron-right" />
+                                        Pay Now
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_sale_payment_2" />
+            </div>
+        </template>
+
+        <template id="rental_order_comfirmation">
+            <t t-call="website.layout">
+                <div class="container">
+                    <center style="margin-top: 60px;height: 350px;">
+                        <div>
+                            <i class="fa fa-check-circle" style="font-size: 9.00rem;color: #29b329;" id="checkmark" />
+                        </div>
+                        <div class="main">
+                            <h2>
+                                <b>
+                                    Order #
+                                    <t t-esc="order.res_number" />
+                                </b>
+                            </h2>
+                        </div>
+                        <div style="margin-top: 50px;">
+                            <h4>
+                                <span>
+                                    Your Order has been confirmed
+                                    <br />
+                                    We will contact you soon
+                                </span>
+                            </h4>
+
+                        </div>
+                    </center>
+                </div>
+            </t>
+
+        </template>
+
+        <template id="rental_product_cart_update" name="Product Cart">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container oe_website_sale">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 oe_cart">
+                                <div class="row">
+                                    <div class="col-md-12 o_website_sale_rightfit">
+                                        <form name="Checkout Form" id="checkout_form" action="/checkout" method="post">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                            <!--                                            <input type="hidden" name="location" t-att-value="request.session['location_id']"/>-->
+                                            <!--                                            <h1><t t-esc="request.session['location']"/>AAAA</h1>-->
+                                            <div class="row">
+                                                <t t-if="product_order_id">
+                                                    <div class="col-xl">
+                                                        <div class="wizard">
+                                                            <div class="progress-rental-wizard">
+                                                                <a class="no-decoration">
+                                                                    <div id="wizard-step10" class="progress-rental-wizard-step active">
+                                                                        <div class="progress-rental-wizard-bar d-none d-md-block" />
+                                                                        <span class="progress-rental-wizard-dot d-none d-md-inline-block"></span>
+                                                                        <div class="text-center progress-rental-wizard-steplabel">
+                                                                            Review Order
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <a class="no-decoration">
+                                                                    <div id="wizard-step40" class="progress-rental-wizard-step">
+                                                                        <div class="progress-rental-wizard-bar d-none d-md-block" />
+                                                                        <span class="progress-rental-wizard-dot d-none d-md-inline-block"></span>
+                                                                        <div class="text-center progress-rental-wizard-steplabel">
+                                                                            Confirm Order
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                            <h2 class="mb8 mt8">Product Cart</h2>
+                                            <t t-call="product_rental_bookings.cart_lines" />
+                                            <div class="clearfix" />
+                                            <input type="hidden" t-att-value="product_order_id" id="product_order_id_exist" />
+                                            <a role="button" href="/search-product" class="btn btn-secondary mb32 d-none d-xl-inline-block">
+                                                <span class="fa fa-chevron-left" />
+                                                <span class="">Rent More</span>
+                                            </a>
+                                            <t t-if="product_order_id">
+                                                <input type="submit" name="process_checkout" id="process_checkout" value="Process Checkout" class="btn-info mb16" style="float:right; line-height:1.5 ;font-size:1.09375rem; padding: 0.5rem 1rem; border-radius:0.3rem" />
+                                            </t>
+                                            <div class="oe_structure" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_structure" />
+                </div>
+            </t>
+        </template>
+
+        <template id="cart_lines" name="Rental Cart Lines">
+            <table class="table table-striped table-condensed js_cart_lines" id="cart_product">
+                <thead>
+                    <tr>
+                        <th class="td-img">Product</th>
+                        <th></th>
+                        <th>Total Days/Hour</th>
+                        <th class="text-center td-price">Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="product_order_id.product_order_lines_ids" t-as="line">
+                        <tr class="product_order_line">
+                            <td>
+                                <span t-field="line.product_id.image_1920" t-class="img rounded o_image_64_max" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
+                            </td>
+                            <td t-if="line.product_id.name" class='td-product_name'>
+                                <div>
+                                    <strong t-esc="line.product_id.with_context(display_default_code=False).display_name" />
+                                </div>
+                            </td>
+                            <td t-if="line.price_based in ['per_hour','per_session']">
+                                <div>
+                                    <strong t-esc="line.enter_hour" />
+                                    hours
+                                </div>
+                            </td>
+                            <td t-else="">
+                                <div>
+                                    <strong t-esc="int(line.enter_days)" />
+                                    days
+                                </div>
+                            </td>
+                            <td t-if="line.price">
+                                <div t-if="line.price_based == 'per_day'" style="display: inline-flex;">
+                                    <strong t-esc="line.product_id.rental_amount" />
+                                    <strong t-esc="request.env.user.company_id.currency_id.symbol" />
+                                </div>
+                                <div t-if="line.price_based == 'per_hour'" style="display: inline-flex;">
+                                    <strong t-esc="line.product_id.rental_amount_per_hour" />
+                                    <strong t-esc="request.env.user.company_id.currency_id.symbol" />
+                                </div>
+                                <div t-if="line.price_based == 'per_session'" style="display: inline-flex;">
+                                    <strong t-esc="line.product_id.rental_amount_per_session" />
+                                    <strong t-esc="request.env.user.company_id.currency_id.symbol" />
+                                </div>
+                            </td>
+                            <td t-if="line.qty_needed">
+                                <strong t-esc="line.qty_needed" />
+                            </td>
+                            <td t-if="line.sub_total">
+                                <div style="display: inline-flex;">
+                                    <strong t-esc="line.sub_total" />
+                                    <strong t-esc="request.env.user.company_id.currency_id.symbol" />
+                                </div>
+                            </td>
+                            <td class="td-action">
+                                <a aria-label="Remove from cart" t-att-id="line.id" title="Remove from cart" class='js_delete_product no-decoration'>
+                                    <small>
+                                        <i class='fa fa-trash-o' style="font-size: 25px;"></i>
+                                    </small>
+                                </a>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </template>
+
+        <template id="product_rental_order" name="Product Order" inherit_id="portal.portal_my_home" priority="20">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">Rental Orders</t>
+                    <t t-set="url" t-value="'/order'" />
+                    <t t-set="count" t-value="rental_order_count" />
+                </t>
+            </xpath>
+        </template>
+
+        <template id="portal_my_rental_orders" name="Rental Orders" inherit_id="portal.portal_breadcrumbs" priority="20">
+            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+                <li t-if="page_name == 'rental_order'" t-attf-class="breadcrumb-item">
+                    Rental Orders
+                </li>
+            </xpath>
+        </template>
+    </data>
+</odoo>
