@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="inherit_account_move_form">
+            <field name="name">Account Move Inherit</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="model">account.move</field>
+            <field name="arch" type="xml">
+                <field name="team_id" position="after">
+                    <field name="contract_id" invisible="1"/>
+                    <field name="is_hours" invisible="1"/>
+                    <field name="is_days" invisible="1"/>
+                </field>
+                <xpath expr="//page/field[@name='invoice_line_ids']/tree/field[@name='quantity']"
+                       position="before">
+                    <field name="enter_hour" attrs="{'column_invisible':[('parent.is_hours', '=', False)]}"/>
+                    <field name="enter_days" attrs="{'column_invisible':[('parent.is_days', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

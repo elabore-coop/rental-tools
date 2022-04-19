@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="stock_picking_form_inherit" model="ir.ui.view">
+            <field name="name">view.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_confirm']" position="after">
+                    <button name="incoming" attrs="{'invisible': [('state', 'in', ['draft', 'waiting', 'assigned', 'done', 'cancel'])]}" string="Receive" type="object" class="oe_highlight" states="on_rent" />
+                    <button name="delivery" attrs="{'invisible': [('state', 'in', ['waiting', 'confirmed', 'assigned', 'done', 'cancel'])]}" string="Delivery" type="object" class="oe_highlight" groups="base.group_user" />
+                    <button name="move" attrs="{'invisible': [('state', 'in', ['draft','waiting', 'confirmed', 'done', 'cancel'])]}" string="Move to Store" type="object" class="oe_highlight" />
+
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="after">
+                    <field name="products_checked" />
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="rental_move_type" invisible="1" />
+                    <field name="is_rental" invisible="1" />
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

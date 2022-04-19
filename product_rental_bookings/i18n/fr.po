@@ -1,0 +1,2587 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_rental_bookings
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 14:44+0000\n"
+"PO-Revision-Date: 2021-09-29 14:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_rental_bookings
+#: model:mail.template,body_html:product_rental_bookings.email_template_product_rental
+msgid ""
+"\n"
+"                 <p>Dear ${object.customer_name.name},<br/>\n"
+"                <br/><br/> \n"
+"                <p>You can reply to this email if you have any questions.</p>\n"
+"                <p>Thank you,</p>\n"
+"\n"
+"                <p style=\"color:#888888;\">\n"
+"                    % if object.user_id and object.user_id.signature:\n"
+"                         ${object.user_id.signature | safe}\n"
+"                    % endif\n"
+"                </p> \n"
+"                \n"
+"           "
+msgstr ""
+"\n"
+"                 <p>Cher ${object.customer_name.name},<br/>\n"
+"                <br/><br/> \n"
+"                <p>Vous pouvez répondre à ce courriel si vous avez la moindre question.</p>\n"
+"                <p>Merci,</p>\n"
+"\n"
+"                <p style=\"color:#888888;\">\n"
+"                    % if object.user_id and object.user_id.signature:\n"
+"                         ${object.user_id.signature | safe}\n"
+"                    % endif\n"
+"                </p> \n"
+"                \n"
+"           "
+
+#. module: product_rental_bookings
+#: model:mail.template,body_html:product_rental_bookings.email_template_product_contract
+msgid ""
+"\n"
+"                 <p>Dear ${object.partner_id.name},<br/><br/>\n"
+"                  <p>Your Rental contract has been created,Here we attached contract detail</p>                   \n"
+"                <br/><br/> \n"
+"                <p>You can reply to this email if you have any questions.</p>\n"
+"                <p>Thank you,</p>\n"
+"\n"
+"                <p style=\"color:#888888;\">\n"
+"                    % if object.user_id and object.user_id.signature:\n"
+"                         ${object.user_id.signature | safe}\n"
+"                    % endif\n"
+"                </p> \n"
+"                \n"
+"           "
+msgstr ""
+"\n"
+"                 <p>Cher ${object.partner_id.name},<br/><br/>\n"
+"                  <p>Votre contrat de location a été créé. Vous en trouverez les détails en pièce jointe</p>                   \n"
+"                <br/><br/> \n"
+"                <p>Vous pouvez répondre à ce courriel si vous avez la moindre question.</p>\n"
+"                <p>Merci,</p>\n"
+"\n"
+"                <p style=\"color:#888888;\">\n"
+"                    % if object.user_id and object.user_id.signature:\n"
+"                         ${object.user_id.signature | safe}\n"
+"                    % endif\n"
+"                </p> \n"
+"                \n"
+"           "
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__invoice_count
+msgid "# Invoice"
+msgstr "# Facture"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__count
+msgid "# of Orders"
+msgstr "# de Commandes"
+
+
+#. module: product_rental_bookings
+#: model:mail.template,report_name:product_rental_bookings.email_template_product_contract
+msgid "${(object.name)}"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:mail.template,report_name:product_rental_bookings.email_template_product_rental
+msgid "${(object.res_number)}"
+msgstr ""
+
+
+
+#. module: product_rental_bookings
+#: model:ir.actions.report,print_report_name:product_rental_bookings.product_contract_recurring_report
+msgid "'Recurring Invoice'"
+msgstr "'Facture récurrente'"
+
+#. module: product_rental_bookings
+#: model:ir.actions.report,print_report_name:product_rental_bookings.product_rental_contract_report
+msgid "'Rental Contract'"
+msgstr "'Contrat de Location'"
+
+#. module: product_rental_bookings
+#: model:ir.actions.report,print_report_name:product_rental_bookings.product_rental_order_report
+msgid "'Rental/Order'"
+msgstr "'Commande de Location'"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "/Day"
+msgstr "/Jour"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "/Hour"
+msgstr "/Heure"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "/Session"
+msgstr "/Session"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid ""
+"30-day money-back guarantee\n"
+"                            <br/>\n"
+"                            <br/>"
+msgstr ""
+"Remboursement sous 30 jours garanti\n"
+"                            <br/>\n"
+"                            <br/>"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid ""
+"<h3>Expiration Of Rental Contract</h3><br/>Dear %s, <br/>Our record indicate"
+" that your rental contract <b>%s,</b> expire soon,<br/>If you want to renew "
+"this contract Then contact to our agency before last date of "
+"contract.<br/><br/><br/><br/><table><tr><td>Contract "
+"Ref<td/><td>%s<td/><tr/><tr><td>Responsible Person <td/><td> %s - "
+"%s<td/><tr/><table/>"
+msgstr ""
+"<h3>Fin de Contrat de Location</h3><br/>Cher %s, <br/>Votre dossier indique"
+" que votre contrat de location <b>%s,</b> se termine bientôt,<br/>Si vous voulez le renouveler, "
+"veuillez contacter notre magasin d'ici le dernier jour de "
+"location.<br/><br/><br/><br/><table><tr><td>Contrat "
+"Ref<td/><td>%s<td/><tr/><tr><td>Responsable <td/><td> %s - "
+"%s<td/><tr/><table/>"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid ""
+"<h3>First Payment!</h3><br/>Hi %s, <br/> This is to notify that You have to "
+"pay amount as per mention below.<br/><br/>Please find the details "
+"below:<br/><br/><table><tr><td>Reference Number<td/><td> "
+"%s<td/><tr/><tr><td>Date<td/><td> %s <td/><tr/><tr><td>Amount <td/><td> "
+"%s<td/><tr/><table/>"
+msgstr ""
+"<h3>Premier paiement !</h3><br/>Bonjour %s, <br/> Ceci est une notification de demande de paiement "
+"du montant mentionné ci-dessous.<br/><br/>Voici les détails :"
+"<br/><br/><table><tr><td>Numéro de référence<td/><td> "
+"%s<td/><tr/><tr><td>Date<td/><td> %s <td/><tr/><tr><td>Montant <td/><td> "
+"%s<td/><tr/><table/>"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid ""
+"<h3>Reminder Recurrent Payment!</h3><br/>Hi %s, <br/> This is to remind you "
+"that the recurrent payment for the rental contract has to be done.Please "
+"make the payment at the earliest.<br/><br/>Please find the details "
+"below:<br/><br/><table><tr><td>Amount <td/><td> %s<td/><tr/><tr><td>Due Date"
+" <td/><td> %s<td/><tr/><tr><td>Responsible Person <td/><td> %s, "
+"%s<td/><tr/><table/>"
+msgstr ""
+"<h3>Rappel de paiement récurrent !</h3><br/>Bonjour %s, <br/> Nous vous rappelons être en "
+"attente de la mise en place du paiement récurrent pour le contrat de location. Veuillez "
+"effectuer le paiement au plus tôt.<br/><br/>Voici les détails :"
+"<br/><br/><table><tr><td>Montant <td/><td> %s<td/><tr/><tr><td>Date due "
+" <td/><td> %s<td/><tr/><tr><td>Personne référente <td/><td> %s, "
+"%s<td/><tr/><table/>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+msgid ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                                    Add payment acquirers"
+msgstr ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                                    Ajouter des intermédiaires de paiement"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_type_kanban
+msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+msgstr "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Gérer\" title=\"Gérer\"/>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_cart_update
+msgid ""
+"<span class=\"fa fa-chevron-left\"/>\n"
+"                                                <span class=\"\">Rent More</span>"
+msgstr ""
+"<span class=\"fa fa-chevron-left\"/>\n"
+"                                                <span class=\"\">Louer d'avantage</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+msgid "<span class=\"fa fa-chevron-right\"/>Pay Now"
+msgstr "<span class=\"fa fa-chevron-right\"/>Payer maintenant"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "<span class=\"o_stat_text\">Contract</span>"
+msgstr "<span class=\"o_stat_text\">Contrat</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "<span class=\"o_stat_text\">Invoiced</span>"
+msgstr "<span class=\"o_stat_text\">Facturé</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "<span class=\"o_stat_text\">Move</span>"
+msgstr "<span class=\"o_stat_text\">Déplacer</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_res_config_settings_form_inherit
+msgid "<span style=\"font-weight:bold;\">Days</span>"
+msgstr "<span style=\"font-weight:bold;\">Jours</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+msgid "<span>Contract -</span>"
+msgstr "<span>Contrat -</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<span>Recurring Invoice Details :</span>"
+msgstr "<span>Détail des factures récurrentes :</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<span>Rental Order -</span>"
+msgstr "<span>Rental Commande -</span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order_comfirmation
+msgid ""
+"<span>Your Order has been confirmed\n"
+"                                    <br/>\n"
+"                                    We will contact you soon\n"
+"                                </span>"
+msgstr ""
+"<span>Votre commande a été confirmée\n"
+"                                    <br/>\n"
+"                                    Nous vous contacterons bientôt\n"
+"                                </span>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>Amount</strong>"
+msgstr "<strong>Montant</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Based On</strong>"
+msgstr "<strong>Unité de location</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+msgid ""
+"<strong>Contractor Signature</strong>\n"
+"                        <br/>"
+msgstr ""
+"<strong>Signature du loueur</strong>\n"
+"                        <br/>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+msgid "<strong>Contractor:</strong>"
+msgstr "<strong>Loueur:</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Customer Details:</strong>"
+msgstr "<strong>Détails du client:</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+msgid ""
+"<strong>Customer Signature</strong>\n"
+"                        <br/>"
+msgstr ""
+"<strong>Signature du client</strong>\n"
+"                        <br/>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Date Ordered:</strong>"
+msgstr "<strong>Date de commande:</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>Date</strong>"
+msgstr "<strong>Date</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Days</strong>"
+msgstr "<strong>Jours</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Description</strong>"
+msgstr "<strong>Description</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>First Payment Amount:</strong>"
+msgstr "<strong>Montant du premier paiement :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>From Date:</strong>"
+msgstr "<strong>Date de début :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>Interval Type:</strong>"
+msgstr "<strong>Type d'interval :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>Payment State</strong>"
+msgstr "<strong>État du paiement</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Payment Terms:</strong>"
+msgstr "<strong>Conditions de paiement :</strong>" ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Price</strong>"
+msgstr "<strong>Prix</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>Recurring Amount:</strong>"
+msgstr "<strong>Montant récurrent :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Vendeur :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+msgid "<strong>Security Deposite:</strong>"
+msgstr "<strong>Caution :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Sous-total</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Tax</strong>"
+msgstr "<strong>Taxes</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>To Date:</strong>"
+msgstr "<strong>Date de fin :</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+msgid "<strong>Total:-</strong>"
+msgstr "<strong>Total :-</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.recurring_report
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "<strong>subtotal</strong>"
+msgstr "<strong>sous-total</strong>"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "A journal must be specified of the acquirer %s."
+msgstr "Un journal doit être spécifié pour l'acheteur %s."
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "A payment acquirer is required to create a transaction."
+msgstr "Un intermédiaire de paiement est requis pour créer une transaction."
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__account_type
+msgid "Account"
+msgstr "Compte"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,help:product_rental_bookings.field_product_advance_payment_invoice__deposit_account_id
+msgid "Account used for deposits"
+msgstr "Compte utilisé pour les dépôts"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/delivery_sign.xml:0
+#, python-format
+msgid "Add Signature"
+msgstr "Ajouter une signature"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Add To Cart"
+msgstr "Ajouter au panier"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__additional_charges
+msgid "Additional Charges"
+msgstr "Charges additionnelles"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/wizard/advance_payment_invoice.py:0
+#, python-format
+msgid "Advance: %s"
+msgstr "Avance : %s"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__recurring_amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.rental_product_analysis
+msgid "Analysis"
+msgstr "Analyse"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__attachment_ids
+msgid "Attachments"
+msgstr "Pièces jointes"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__auto_generated
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__auto_generated
+msgid "Automatically Generated"
+msgstr "Généré automatiquement"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__product_line_ids
+msgid "Available Product"
+msgstr "Produit disponible"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_book.py:0
+#, python-format
+msgid "Available quantity for %s is %d"
+msgstr "La quantité disponible de %s est %d"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__price_based
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__price_based
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__price_based
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Based On"
+msgstr "Basé en"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_product_booking
+msgid "Book"
+msgstr "Réserver"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__book_number
+msgid "Book Number"
+msgstr "Numéro de réservation"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.header_company_menu_11
+msgid "Book Product"
+msgstr "Réserver un produit"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__book_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__book_date
+msgid "Booking Date"
+msgstr "Date de location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__button_name
+msgid "Button Name"
+msgstr "Bouton Nom"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_order__state__cancel
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__wizard_product_service__state__cancel
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_advance_payment_invoice
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__cancel_policy_ids
+msgid "Cancel Policy"
+msgstr "Politique d'annulation"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Cancellation Policy"
+msgstr "Politique d'annulation"e"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/product_booking_calender.xml:0
+#, python-format
+msgid "Category:"
+msgstr "Categorie:"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__policy_charged
+msgid "Charge(In Percentage)"
+msgstr "Charge (en pourcentage)"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "City"
+msgstr "Ville"
+
+#. module: product_rental_bookings
+#: model_terms:ir.actions.act_window,help:product_rental_bookings.action_rental_product_contract
+#: model_terms:ir.actions.act_window,help:product_rental_bookings.action_rental_product_contract_form
+msgid "Click to add Products Contract"
+msgstr "Cliquer pour ajouter des Contrats"
+
+#. module: product_rental_bookings
+#: model_terms:ir.actions.act_window,help:product_rental_bookings.action_product_operation_type
+msgid "Click to create a new operation type."
+msgstr "Cliquer pour créer un nouveau type d'opération"
+
+#. module: product_rental_bookings
+#: model_terms:ir.actions.act_window,help:product_rental_bookings.action_picking_type_list
+msgid "Click to define a new transfer."
+msgstr "Cliquer pour définir un nouveau transfert"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/delivery_sign.xml:0
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_order__state__close
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__wizard_product_service__state__close
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#, python-format
+msgid "Close"
+msgstr "Fermer"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Close Contract"
+msgstr "Fermer les contrats"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__state__closed
+msgid "Closed"
+msgstr "Fermé"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__company_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__company_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__company_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__company_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__company_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Company Name"
+msgstr "Nom de société"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.product_configuration_menu
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.menu_configuration_action
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_order__state__confirm
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__wizard_product_service__state__confirm
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_cart_update
+msgid "Confirm Order"
+msgstr "Confirmer la commande"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__contract_id
+msgid "Conrtract"
+msgstr "Contrat"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_contract_view_tree
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__contract_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__contract_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__contract_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__product_contract_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__contract_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__document_ids
+msgid "Contract"
+msgstr "Contrat"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__contract_date
+msgid "Contract Date"
+msgstr "Date de contrat"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__contract_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__contract_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__contract_ids
+msgid "Contract Id"
+msgstr "ID de contrat"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__contractor_id
+msgid "Contractor Name"
+msgstr "Nom du contractuel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__signature_contractor
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Contractor Signature"
+msgstr "Signature du contractuel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__signature
+msgid "Contractor Signature  "
+msgstr "Signature du contractuel  "
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__is_agreement
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__is_agreement
+msgid "Contracts Require?"
+msgstr "Contrats requis ?"
+
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,help:product_rental_bookings.field_rental_product_contract__cost_generated
+msgid "Costs paid at regular intervals, depending on the cost frequency"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__cotract_order_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__cotract_order_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__cotract_order_id
+msgid "Cotract Ref"
+msgstr "Référence de contrat"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__count
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__count
+msgid "Count"
+msgstr "Quantité"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__count_operation_on_rent
+msgid "Count Operation On Rent"
+msgstr "Nombre d'opérations En Location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__count_operation_ready
+msgid "Count Operation Ready"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__count_operation_service
+msgid "Count Operation Service"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Country"
+msgstr "Pays"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Country..."
+msgstr "Pays..."
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_booking_id
+msgid "Create"
+msgstr "Créer"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_advance_payment_invoice
+msgid "Create Invoices"
+msgstr "Créer les factures"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid ""
+"Create a new contract automatically with                             all the"
+" same informations except for the date that will"
+"                             start at the end of current contract"
+msgstr ""
+"Créer un nouveau contrat automatiquement avec                             toujours les"
+" mêmes informations, sauf pour la date qui va"
+"                             commencer à la fin du contrat en cours"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_advance_payment_invoice
+msgid "Create and View Invoices"
+msgstr "Créer et voir les factures"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Create invoice"
+msgstr "Créer une facture"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__create_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__create_uid
+msgid "Created by"
+msgstr "Créer par"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__create_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__create_date
+msgid "Created on"
+msgstr "Créer le"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__currency_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__currency_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__currency_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__currency_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__currency_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__partner_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__customer_id
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_customer_document
+msgid "Customer Document"
+msgstr "Document Client"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__customer_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__customer_name
+msgid "Customer Name"
+msgstr "Nom du client"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__signature_customer
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Customer Signature"
+msgstr "Signature du client"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__deposit_taxes_id
+msgid "Customer Taxes"
+msgstr "Taxes client"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__rental_move_type__outgoing
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__stock_picking__rental_move_type__outgoing
+msgid "Customers"
+msgstr "Clients"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__cost_frequency__daily
+msgid "Daily"
+msgstr "Quotidien"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__damage_charge
+msgid "Damage Charge"
+msgstr "Coût d'endommagement"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__date_today
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_booking_id
+msgid "Date"
+msgstr "Date"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__date_order
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__date_order
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Date From"
+msgstr "Du"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Date To"
+msgstr "Au"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__account_move__interval_type__days
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_contract_lines__price_based__per_day
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_order_line__price_based__per_day
+msgid "Day"
+msgstr "Jour"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__enabled_day_rent
+msgid "Day Rent"
+msgstr "Jour loué"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__is_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__is_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move_line__enter_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__is_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__enter_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__enter_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__is_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__is_days
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__is_days
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Days"
+msgstr "Jours"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__user_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__user_id
+msgid "Dealer"
+msgstr "Distributeur"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_type_kanban
+msgid "Deliveries of Product"
+msgstr "Livraisons de produits"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.stock_picking_form_inherit
+msgid "Delivery"
+msgstr "Livraison"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__partner_shipping_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__partner_shipping_id
+msgid "Delivery Address"
+msgstr "Adresse de livraison"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__description
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__name
+msgid "Description"
+msgstr "Description"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__destination_location
+msgid "Destination Location"
+msgstr "Emplacement de destination"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_payment_transaction__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_move__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__name
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Document"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__state__done
+msgid "Done"
+msgstr "Fait"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/wizard/advance_payment_invoice.py:0
+#, python-format
+msgid "Down Payment"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__amount
+msgid "Down Payment Amount"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__product_id
+msgid "Down Payment Product"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_advance_payment_invoice__advance_payment_method__fixed
+msgid "Down payment (fixed amount)"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_advance_payment_invoice__advance_payment_method__percentage
+msgid "Down payment (percentage)"
+msgstr ""
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/wizard/advance_payment_invoice.py:0
+#, python-format
+msgid "Down payment of %s%%"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_order__state__draft
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__wizard_product_service__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "E-mail"
+msgstr "Courriel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__email_template_id
+msgid "Email template"
+msgstr "Template de courriel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__day_interval
+msgid "Email/Interval"
+msgstr "Courriel/Interval"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__end_time
+msgid "End Time"
+msgstr "Entrer le nombre d'heure"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Enter quantity"
+msgstr "Entrer la quantité"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__state__expired
+msgid "Expired"
+msgstr "Expiré"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__state__diesoon
+msgid "Expiring Soon"
+msgstr "Expire bientôt"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__extra_charges
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__extra_charges
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__extra_charges
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__extra_charges
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "Extra Charges"
+msgstr "Charges supplémentaires"
+
+#. module: product_rental_bookings
+#: model:product.product,name:product_rental_bookings.extra_charge_product_id
+#: model:product.template,name:product_rental_bookings.extra_charge_product_id_product_template
+msgid "Extra charge"
+msgstr "Charge supplémentaire"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__first_invoice_created
+msgid "First Invoice Created"
+msgstr "Première facture créée"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__first_payment
+msgid "First Payment"
+msgstr "Premier paiement"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_book.py:0
+#, python-format
+msgid "First Please Select the Product"
+msgstr "Sélectionner le produit en premier SVP"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__from_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__from_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__from_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__from_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__from_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__from_date
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order
+msgid "From Date"
+msgstr "Du"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "From DateTime"
+msgstr "Du"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Generate Policy"
+msgstr "Politique générale"
+
+#. module: product_rental_bookings
+#: model:ir.actions.server,name:product_rental_bookings.ir_cron_rental_contract_costs_ir_actions_server
+#: model:ir.cron,cron_name:product_rental_bookings.ir_cron_rental_contract_costs
+#: model:ir.cron,name:product_rental_bookings.ir_cron_rental_contract_costs
+msgid "Generate Rental contracts costs"
+msgstr "Coûts généraux des contrats de location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__generated_cost_ids
+msgid "Generated Costs"
+msgstr "Coûts générés"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move_line__enter_hour
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__enter_hour
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__enter_hour
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_contract_lines__price_based__per_hour
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_order_line__price_based__per_hour
+msgid "Hour"
+msgstr "Heure"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__enabled_hour_rent
+msgid "Hour Rent"
+msgstr "Heures louées"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__is_hours
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__is_hours
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__is_hours
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__is_hours
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__is_hours
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__is_hours
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Hours"
+msgstr "Heures"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move_line__idid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_payment_transaction__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_move__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__id
+msgid "ID"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__id_number
+msgid "ID Number"
+msgstr "Numéro ID"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__state__open
+msgid "In Progress"
+msgstr "En cours"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__deposit_account_id
+msgid "Income Account"
+msgstr "Montant à venir"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__state__futur
+msgid "Incoming"
+msgstr "A venir"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_type_kanban
+msgid "Incoming Products"
+msgstr "Produits à venir"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__sum_cost
+msgid "Indicative Costs Total"
+msgstr "Tarifs totaux indicatifs"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/js/product_contract_sign.js:0
+#, python-format
+msgid "Information"
+msgstr ""
+
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__rental_move_type__internal
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__stock_picking__rental_move_type__internal
+msgid "Internal"
+msgstr "Interne"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_type_kanban
+msgid "Internal Moves"
+msgstr "Mouvements internes"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__interval_number
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__interval_number
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__interval_number
+msgid "Interval Number"
+msgstr "Numéro d'interval"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__interval_type
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__interval_type
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__interval_type
+msgid "Interval Type"
+msgstr "Type d'interval"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "Invalid token found! Token acquirer %s != %s"
+msgstr ""
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "Invalid token found! Token partner %s != %s"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__invoice_number
+msgid "Invoice ID"
+msgstr "ID facture"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__invoice_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__invoice_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__invoice_ids
+msgid "Invoice Id"
+msgstr "ID facture"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__invoice_ref
+msgid "Invoice Ref"
+msgstr "Référence facture"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_view_product_advance_payment_invoice
+msgid "Invoice Rental Orders"
+msgstr "Facture commandes de location"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_advance_payment_invoice
+msgid "Invoice Rentals Order"
+msgstr "Facture commande de location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__invoice_status
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__invoice_status
+msgid "Invoice Status"
+msgstr "Statut de la facture"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "Invoice must be in draft state in order to validate it."
+msgstr "La facture doit être en Brouillon pour être validée."
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_advance_payment_invoice__advance_payment_method__delivered
+msgid "Invoiceable lines"
+msgstr "Lignes facturables"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_advance_payment_invoice__advance_payment_method__all
+msgid "Invoiceable lines (deduct down payments)"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_advance_payment_invoice
+msgid ""
+"Invoices will be created in draft so that you can review\n"
+"                        them before validation."
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__partner_invoice_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__partner_invoice_id
+msgid "Invoicing Address"
+msgstr "Adresse de facturation"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__is_damaged
+msgid "Is Damaged"
+msgstr "Est endommagé"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__is_search
+msgid "Is Search"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__enter_kms
+msgid "KM"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_payment_transaction____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_move____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__write_uid
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_customer_document__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__write_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__location_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__location_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__location_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__location_id
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "Location"
+msgstr "Point de vente"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_book.py:0
+#, python-format
+msgid "Manage Multiple Stock Locations need to be assign."
+msgstr ""
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/product_booking_calender.xml:0
+#: code:addons/product_rental_bookings/static/src/xml/product_booking_calender.xml:0
+#, python-format
+msgid "Model"
+msgstr "Modèle"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__account_move__interval_type__months
+msgid "Month"
+msgstr "Mois"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__cost_frequency__monthly
+msgid "Monthly"
+msgstr "Mensuel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__product_move_line_id
+msgid "Move Lines"
+msgstr "Déplacer les lignes"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.stock_picking_form_inherit
+msgid "Move to Store"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__name
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "New"
+msgstr "Nouveau"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__cost_frequency__no
+msgid "No"
+msgstr "Non"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__number_of_email
+msgid "Number of Email"
+msgstr "Nombre de courriel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__number_of_slot
+msgid "Number of Slot"
+msgstr "Nombre de créneaux"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__state__on_rent
+msgid "On Rent"
+msgstr "A louer"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.rental_product_branch_menu
+msgid "Operation"
+msgstr "Opération"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_picking_type_list
+#: model:ir.actions.act_window,name:product_rental_bookings.action_product_operation_type
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__operation_type_id
+msgid "Operation Type"
+msgstr "Type d'opération"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_operation_form_id
+msgid "Operation Type Name"
+msgstr "Nom du Type d'opération"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__name
+msgid "Operation Types Name"
+msgstr "Nom des Types d'opération"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.menu_operation_type
+msgid "Operations Types"
+msgstr "Types d'opération"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__product_registration_id
+msgid "Order"
+msgstr "Commande"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order_comfirmation
+msgid "Order #"
+msgstr "Commande #"
+
+#. module: product_rental_bookings
+#: model:mail.template,subject:product_rental_bookings.email_template_product_contract
+msgid "Order (Ref ${object.name or 'n/a' })"
+msgstr "Commande (Ref ${object.name or 'n/a' })"
+
+#. module: product_rental_bookings
+#: model:mail.template,subject:product_rental_bookings.email_template_product_rental
+msgid "Order (Ref ${object.res_number or 'n/a' })"
+msgstr "Commande (Ref ${object.res_number or 'n/a' })"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__product_contract_lines_ids
+msgid "Order Line"
+msgstr "Ligne de commande"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__product_order_lines_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__product_order_lines_ids
+msgid "Order Line "
+msgstr "Ligne de commande"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_search
+msgid "Order Number"
+msgstr "Numéro de commande"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__origin
+msgid "Order Reference"
+msgstr "Référence de commande"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__res_number
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__res_number
+msgid "Order number"
+msgstr "Numéro de commande"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "Other Information"
+msgstr "Autres informations"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+#, python-format
+msgid "Pay Now"
+msgstr "Payer maintenant"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+msgid "Pay with"
+msgstr "Payer avec"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Payment Details"
+msgstr "Détails du paiement"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__payment_info
+msgid "Payment Stage"
+msgstr "État du paiement"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__account_payment_term
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__account_payment_term
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__account_payment_term
+msgid "Payment Term"
+msgstr "Conditions de paiement"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "Transaction"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__picking_id
+msgid "Picking"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__stock_picking_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__stock_picking_ids
+msgid "Picking Id"
+msgstr ""
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "Please Select From date Or to date!!!"
+msgstr "Veuillez sélectionner du date de début et de fin"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/stock_picking.py:0
+#, python-format
+msgid "Please Select Some Product to Move"
+msgstr ""
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/js/product_contract_sign.js:0
+#, python-format
+msgid "Please add signature and try again."
+msgstr ""
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid "Please enter the sufficient Number of Slot"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__price
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__price
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+msgid "Price"
+msgstr Prix""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__pricelist_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__pricelist_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__pricelist_id
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_product_product
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__product_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__rental_product_ids
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__rental_product_ids
+#: model:ir.ui.menu,name:product_rental_bookings.product_product_product
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "Product"
+msgstr "Article"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_book.py:0
+#, python-format
+msgid "Product Booking"
+msgstr "Réservation de produits"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_cart_update
+msgid "Product Cart"
+msgstr "Panier"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__categ_id
+msgid "Product Category"
+msgstr "Catégorie de produit"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid "Product Contract"
+msgstr "Contrat de produit"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_booking_id
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Product Details"
+msgstr "Détails du produit"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move_line__product_id
+msgid "Product ID"
+msgstr "ID du produit"
+
+
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__product_location_id
+msgid "Product Location"
+msgstr "Emplacement du produit"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_move__product_move_id
+msgid "Product Move"
+msgstr "Mouvement du produit"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__product_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__product_name
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Product Name"
+msgstr "Nom du produit"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "Product Register"
+msgstr "Enregistrement du produit"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/js/product_booking_calender.js:0
+#: model:ir.actions.client,name:product_rental_bookings.action_product_calender_product_booking1
+#, python-format
+msgid "Product Rental Booking"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_contract
+msgid "Product Rental Contract"
+msgstr "Contract de location du produit"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_product_contract_lines
+msgid "Product Retnal Contract Lines"
+msgstr "Lignes de contrat de location du produit"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_product_quick_product_booking
+msgid "Product booking"
+msgstr "Réservation du produit"
+
+
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__product_id
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_booking_calendar
+msgid "product"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_product_logs_analysis
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_logs_graph
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_logs_pivot
+msgid "product Logs"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__product_id
+msgid "product Name"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__product_order_rel_id
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "product Order"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_product_order_line
+msgid "product Order Line"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.product_action_quotations
+msgid "product Quotations"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__product_order_id
+msgid "product order"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__qty_needed
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__rental_qyt
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__qty_needed
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_quick_booking_menu
+msgid "Quick Search"
+msgstr "Recherche rapide"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Rate Per Day"
+msgstr "Coût journalier"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Rate Per Hour"
+msgstr "Coût horaire"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Rate Per Session"
+msgstr "Coût par session"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__state__ready
+msgid "Ready"
+msgstr "Prêt"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.stock_picking_form_inherit
+msgid "Receive"
+msgstr "Recevoir"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__cost_generated
+msgid "Recurring Cost"
+msgstr "Coût récurrent"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__cost_frequency
+msgid "Recurring Cost Frequency"
+msgstr "Fréquence des tarifs récurrent"
+
+#. module: product_rental_bookings
+#: model:ir.actions.report,name:product_rental_bookings.product_contract_recurring_report
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__is_recuuring
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__is_recuuring
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__is_recuuring
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Recurring Invoice"
+msgstr "Facture récurrente"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__recurring_line
+msgid "Recurring Line"
+msgstr "Ligne récurrente"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+msgid "Remove from cart"
+msgstr "Retirer du panier"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Renew                             Contract"
+msgstr "Renouveller                             le contrat"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid "Renew Contract"
+msgstr "Renouveller le contrat"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__cost
+msgid "Rent Cost"
+msgstr "Tarif de location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__rental_amount
+msgid "Rent Per Day Rate"
+msgstr "Tarif à la journée"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__rental_amount_per_hour
+msgid "Rent Per Hour Rate"
+msgstr "Tarif à l'heure"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__rental_amount_per_session
+msgid "Rent Per Session Rate"
+msgstr "Tarif de la session"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "Rent Product not available right Now"
+msgstr "Produit de location non disponible actuellement"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__is_rental
+#: model:ir.ui.menu,name:product_rental_bookings.rental_product_booking_menu
+#: model:ir.ui.menu,name:product_rental_bookings.rental_product_main_menu
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_res_config_settings_form_inherit
+msgid "Rental"
+msgstr "Location"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_calender_booking_menu
+msgid "Rental Bookings"
+msgstr "Calendrier de location"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_res_config_settings_form_inherit
+msgid "Rental Configuration"
+msgstr "Configuration de location"
+
+#. module: product_rental_bookings
+#: model:ir.actions.report,name:product_rental_bookings.product_rental_contract_report
+msgid "Rental Contract"
+msgstr "Contrat de location"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_product_contract
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_product_contract_form
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_contract_sub_menu
+msgid "Rental Contracts"
+msgstr "Contrats de location"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_product_rental_line
+msgid "Rental Lines"
+msgstr "Lignes de location"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_logs_analysis
+msgid "Rental Log"
+msgstr "Logs de location"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_product_logs
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_logs_menu
+msgid "Rental Logs"
+msgstr "Logs de location"
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_product_move
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__is_rental
+msgid "Rental Move"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_rental_line__rental_number
+msgid "Rental Number"
+msgstr "Numéro de location"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/js/product_booking_calender.js:0
+#: model:ir.actions.act_window,name:product_rental_bookings.action_product_order_id
+#: model:ir.actions.act_window,name:product_rental_bookings.action_product_order_id_new
+#: model:ir.actions.act_window,name:product_rental_bookings.action_rental_order_analysis
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+#, python-format
+msgid "Rental Order"
+msgstr "Commande de location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__rental_id
+msgid "Rental Order Id"
+msgstr "ID Commande de location"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.product_order_menu
+#: model:ir.ui.menu,name:product_rental_bookings.product_rental_order_analysis
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.portal_my_rental_orders
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_rental_order
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_rental_order_graph
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.view_product_rental_order_pivot
+msgid "Rental Orders"
+msgstr "Commandes de location"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_policy
+msgid "Rental Policy"
+msgstr "Politique de location"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_bank_statement_line__rental_order_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_move__rental_order_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_account_payment__rental_order_id
+msgid "Rental ref   "
+msgstr "Référence de location   "
+
+#. module: product_rental_bookings
+#: model:ir.actions.report,name:product_rental_bookings.product_rental_order_report
+msgid "Rental/Order"
+msgstr "Location/Commande"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/delivery_sign.xml:0
+#, python-format
+msgid "Reset"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__rental_move_type__incoming
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__stock_picking__rental_move_type__incoming
+msgid "Return"
+msgstr "Retourner"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__return_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__return_date
+msgid "Return Date"
+msgstr "Date de retour"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_cart_update
+msgid "Review Order"
+msgstr ""
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/delivery_sign.xml:0
+#, python-format
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_booking_id
+msgid "Search"
+msgstr "Lancer la recherche"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_product__selected_product
+msgid "Select"
+msgstr "Sélectionner"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "Select Product Categoty"
+msgstr "Sélectionner la catégorie"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_move__products_checked
+msgid "Select Products"
+msgstr "Sélectionner les produits"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "Select Session"
+msgstr "Sélectionner la session"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Send Contract by Email"
+msgstr "Envoyer le contrat par courriel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__send_mail_after
+msgid "Send Mail After"
+msgstr "Envoier un courriel après"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_order_form_id
+msgid "Send by Email"
+msgstr "Envoyer par courriel"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__state__service
+msgid "Service"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__service_location_id
+msgid "Service Location"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__session_id
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_contract_lines__price_based__per_session
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__product_order_line__price_based__per_session
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Session"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.action_session_config
+#: model:ir.ui.menu,name:product_rental_bookings.menu_session_config
+msgid "Session Configuration"
+msgstr "Configuration de session"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_res_config_settings__enabled_session_rent
+msgid "Session Rent"
+msgstr "Location par session"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_session_config
+msgid "Session configuration settings"
+msgstr "Paramètres de configuration des sessions"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Set                             Contract In Progress"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.actions.act_window,name:product_rental_bookings.rental_config_settings_action
+#: model:ir.ui.menu,name:product_rental_bookings.rental_menu_configuration
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_type_kanban
+msgid "Settings"
+msgstr "Configurations"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.payment
+msgid "Shop - Select Payment Acquirer"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Sign in"
+msgstr "Se connecter"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/js/product_contract_sign.js:0
+#, python-format
+msgid "Signature stored successfully."
+msgstr "Signature enregistrée avec succès"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "Source Document"
+msgstr "Document source"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__source_location
+msgid "Source Location"
+msgstr "Emplacement d'origine"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_session_config__start_time
+msgid "Start Time"
+msgstr "Heure de début"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/session_config_settings.py:0
+#, python-format
+msgid "Start time must be smaller than End time"
+msgstr "L'heure de début doit être avant l'heure de fin"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/session_config_settings.py:0
+#, python-format
+msgid "Start time or End time is wrong"
+msgstr "L'heure de début ou l'heure de fin est incorrecte"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__state
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__state
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__state
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order
+msgid "State"
+msgstr "État"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__state
+msgid "Status"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_stock_move
+msgid "Stock Move"
+msgstr "Mouvement de stock"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.stock_inventory_sub_menu
+msgid "Stock inventory"
+msgstr "Inventaire"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Street and Number"
+msgstr "Numéro et rue"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Street2"
+msgstr "Rue 2"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__sub_total
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__sub_total
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__subtotal
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+msgid "Sub Total"
+msgstr "Sous-total"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__sub_total
+msgid "Sub Total(Exclusive Tax)"
+msgstr "Sous-total (taxes exclues)"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Submit"
+msgstr "Soumettre"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "TIN/VAT"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__tax_id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__tax_id
+msgid "Tax"
+msgstr "Taxe"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__price_tax
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__price_tax
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__taxes
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__taxes
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__taxes
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_contract
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.report_product_rental_order
+msgid "Taxes"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,help:product_rental_bookings.field_product_advance_payment_invoice__deposit_taxes_id
+msgid "Taxes used for deposits"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__terms_condition
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__terms_condition
+msgid "Terms And Condition"
+msgstr "Conditions générales de vente"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__terms_condition
+msgid "Terms and Condition"
+msgstr "Conditions générales de vente"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,help:product_rental_bookings.field_product_advance_payment_invoice__amount
+msgid "The amount to be invoiced in advance, taxes excluded."
+msgstr "Le montant à facturer en avance, taxes exclues."
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/wizard/advance_payment_invoice.py:0
+#, python-format
+msgid "The value of the down payment amount must be positive."
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,help:product_rental_bookings.field_rental_product_contract__cost
+msgid "This fields is to determine the cost of rent"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__to_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_policy__to_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__to_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_logs__to_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__to_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__to_date
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_order
+msgid "To Date"
+msgstr "Au"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "To DateTime"
+msgstr "Au"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__total
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__total
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__total
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__total
+msgid "Total"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_contract_lines__price_total
+msgid "Total "
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__total_amount
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__total_amount
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__total_amount
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__total_amount
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__contract_count
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__contract_count
+msgid "Total Contract"
+msgstr "Total du contrat"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__total_days
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Total Days"
+msgstr "Nombre de jours total"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.checkout_process
+msgid "Total Days/Hour"
+msgstr "Total Jours/Heures"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_booking__total_hours
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product
+msgid "Total Hours"
+msgstr "Nombre d'heures totales"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__invoice_count
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__invoice_count
+msgid "Total Invoiced"
+msgstr "Total facturé"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__picking_count
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__picking_count
+msgid "Total Invoiced "
+msgstr "Total facturé"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_order_line__price_total
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+msgid "Total Price"
+msgstr "Prix total"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__is_true
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__is_true
+msgid "True"
+msgstr "Vrai"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "Type"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__rental_move_type
+#: model:ir.model.fields,field_description:product_rental_bookings.field_stock_picking__rental_move_type
+msgid "Types of Operation"
+msgstr "Type d'opération"
+
+#. module: product_rental_bookings
+#: model:product.product,uom_name:product_rental_bookings.extra_charge_product_id
+#: model:product.template,uom_name:product_rental_bookings.extra_charge_product_id_product_template
+msgid "Units"
+msgstr "Unités"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__untaxed_amount
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__untaxed_amount
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__untaxed_amount
+msgid "Untaxed Amount"
+msgstr "Montant hors-taxes"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__amount_untaxed
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__amount_untaxed
+msgid "Untaxed Amount 1"
+msgstr "Montant hors-taxes 1"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__account_move__interval_type__weeks
+msgid "Week"
+msgstr "Semaine"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__cost_frequency__weekly
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_product_advance_payment_invoice__advance_payment_method
+msgid "What do you want to invoice?"
+msgstr "Que voulez-vous facturer ?"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_contract__cost_frequency__yearly
+msgid "Yearly"
+msgstr "Annuel"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_contract.py:0
+#, python-format
+msgid "You First Payment For: %s"
+msgstr "Votre premier paiement pour :"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_book.py:0
+#: code:addons/product_rental_bookings/models/product_book.py:0
+#, python-format
+msgid "You cannot enter past date"
+msgstr "Vous ne pouvez pas entrer une date passée"
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid ""
+"You cannot validate an invoice with a negative total amount. You should "
+"create a credit note instead."
+msgstr ""
+"Vous ne pouvez pas valider une facture avec un montant négatif. Vous devez "
+"créer une notre de crédit à la place."
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.customer_registration_template
+msgid "Zip"
+msgstr "Code postal"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_move_sub_menu
+msgid "product_rental_bookings.feet_product_move_sub_menu"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.rental_product_operation_dashboard
+msgid "product_rental_bookings.rental_product_operation_dashboard"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+msgid "days"
+msgstr "jours"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "dd-mm-yyyy"
+msgstr "jj-mm-yyyy"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_search
+msgid "dd-mm-yyyy HH:MM"
+msgstr "jj-mm-aaaa HH:MM"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__end_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__end_date
+msgid "end Date"
+msgstr "Date de fin"
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.cart_lines
+msgid "hours"
+msgstr "heures"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__is_invoice
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__is_invoice
+msgid "invoice"
+msgstr "facture"
+
+#. module: product_rental_bookings
+#. openerp-web
+#: code:addons/product_rental_bookings/static/src/xml/delivery_sign.xml:0
+#, python-format
+msgid "or"
+msgstr "ou"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_product_advance_payment_invoice
+msgid "product Advance Payment Invoice"
+msgstr ""
+
+#. module: product_rental_bookings
+#: code:addons/product_rental_bookings/models/product_order.py:0
+#, python-format
+msgid "product Contract"
+msgstr "Contrat de produit"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_order
+msgid "product Product Order"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_logs
+msgid "product Products Logs"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_operation
+msgid "product Products Operation"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.product_booking_id
+msgid "product product Booking"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "product Reccurring Lines"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_wizard_product_service
+msgid "product Service"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model_terms:ir.ui.view,arch_db:product_rental_bookings.rental_product_contract_form
+msgid "recurring_amount"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__start_date
+#: model:ir.model.fields,field_description:product_rental_bookings.field_wizard_product_service__start_date
+msgid "start Date"
+msgstr "Date de début"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__rental_move_type__outgoing
+msgid "Customers"
+msgstr "Clients"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__display_name
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__id
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order__id
+msgid "ID"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__rental_move_type__internal
+msgid "Internal"
+msgstr "Interne"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.rental_product_inventory_menu
+msgid "Inventory"
+msgstr "Inventaire"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_contract____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation____last_update
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_order____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_rental_bookings
+#: model:ir.ui.menu,name:product_rental_bookings.feet_product_internal_inventory_sub_menu
+msgid "On Charge order"
+msgstr "Bon de charge"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_contract
+msgid "Product Rental Contract"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model.fields.selection,name:product_rental_bookings.selection__rental_product_operation__rental_move_type__incoming
+msgid "Return"
+msgstr "Retourner"
+
+#. module: product_rental_bookings
+#: model:ir.model.fields,field_description:product_rental_bookings.field_rental_product_operation__rental_move_type
+msgid "Types of Operation"
+msgstr "Type d'opération"
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_order
+msgid "product Product Order"
+msgstr ""
+
+#. module: product_rental_bookings
+#: model:ir.model,name:product_rental_bookings.model_rental_product_operation
+msgid "product Products Operation"
+msgstr ""

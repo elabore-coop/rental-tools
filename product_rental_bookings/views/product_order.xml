@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="rental_product_order_search" model="ir.ui.view">
+            <field name="name">Rental Order</field>
+            <field name="model">rental.product.order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="res_number" filter_domain="[('res_number','ilike',self)]" string="Order Number" />
+                    <field name="customer_name" filter_domain="[('customer_name','ilike',self)]" string="Customer" />
+                </search>
+            </field>
+        </record>
+
+        <record id="rental_product_order_form_id" model="ir.ui.view">
+            <field name="name">Rental Order</field>
+            <field name="model">rental.product.order</field>
+            <field name="arch" type="xml">
+                <form string="product Order">
+                    <header>
+                        <field name="state" widget="statusbar" />
+                        <button name="send_product_quote" string="Send by Email" type="object" class="oe_highlight" />
+                        <button name="confirm" string="Confirm" type="object" class="oe_highlight" states="book,draft" />
+                        <button name="cancel" string="Cancel" type="object" class="oe_highlight" attrs="{'invisible': [('state', 'in', ('cancel', 'close'))]}" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" class="oe_stat_button" icon="fa-truck" name="action_view_stock_pickings" invisible="1">
+                                <div class="o_form_field o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="picking_count" />
+                                    </span>
+                                    <span class="o_stat_text">Move</span>
+                                </div>
+                            </button>
+                            <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="action_view_order_invoices" attrs="{'invisible': [('invoice_count','=',0)]}">
+                                <div class="o_form_field o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="invoice_count" />
+                                    </span>
+                                    <span class="o_stat_text">Invoiced</span>
+                                </div>
+                            </button>
+                            <button type="object" class="oe_stat_button" icon="fa-book" name="action_view_order_contract" attrs="{'invisible': [('contract_count','=',0)]}">
+                                <div class="o_form_field o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="contract_count" />
+                                    </span>
+                                    <span class="o_stat_text">Contract</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="res_number" placeholder="New" />
+                            </h1>
+                        </div>
+                        <group col="4">
+                            <field name="customer_name" required="1" />
+                            <field name="book_date" />
+                            <field name="from_date" required="1" readonly="1" />
+                            <field name="to_date" required="1" readonly="1" />
+                            <field name="start_date" invisible="1" />
+                            <field name="end_date" invisible="1" />
+                            <field name="is_agreement" invisible="1" />
+                            <field name="account_payment_term" />
+                            <field name="location_id" invisible="1" />
+                            <field name="company_id" invisible="1" />
+                            <field name="count" invisible="1" />
+                            <field name="is_true" invisible="1" />
+                            <field name="pricelist_id" invisible="1" />
+                            <field name="return_date" invisible="1" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="is_hours" invisible="1" />
+                            <field name="is_days" invisible="1" />
+                        </group>
+                        <group>
+                            <group col="2"></group>
+                            <group col="2"></group>
+                        </group>
+                        <notebook>
+                            <page name="rental_order" string="Rental Order">
+                                <field name="product_order_lines_ids" readonly="1">
+                                    <tree editable="bottom">
+                                        <field name="product_id" string="Product" context="{'from_date':parent.from_date, 'to_date':parent.to_date, 'from_product_order': True}" domain="[('is_rental', '=', True)]" />
+                                        <field name="name" />
+                                        <field name="product_order_id" invisible="1" />
+                                        <field name="price_based" />
+                                        <field name="enter_days" attrs="{'column_invisible':[('parent.is_days', '=', False)],'invisible': [('price_based', '=', 'per_hour')]}" />
+                                        <field name="enter_hour" attrs="{'column_invisible':[('parent.is_hours', '=', False)],'invisible': [('price_based', '=', 'per_day')]}" />
+                                        <field name="qty_needed" />
+                                        <field name="currency_id" invisible="1" />
+                                        <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                        <field name="tax_id" widget="many2many_tags" />
+                                        <field name="sub_total" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                    <label for="untaxed_amount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                    <field name="untaxed_amount" nolabel="1" widget='monetary' />
+                                    <label for="taxes" />
+                                    <field name="taxes" nolabel="1" widget='monetary' />
+                                    <label for="extra_charges" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                    <field name="extra_charges" nolabel="1" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                    </div>
+                                    <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' />
+                                </group>
+                                <group>
+                                    <field name="terms_condition" />
+                                </group>
+                            </page>
+                            <page name="other_info" string="Other Information">
+                                <group>
+                                    <group>
+                                        <field name="user_id" />
+                                        <field name="invoice_status" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rental_product_driver_schedule" model="ir.ui.view">
+            <field name="name">Rental Order</field>
+            <field name="model">rental.product.order</field>
+            <field name="arch" type="xml">
+                <tree decoration-muted="state=='cancel'" decoration-info="state=='draft'" decoration-success="state=='confirm'">
+                    <field name="customer_name" />
+                    <field name="res_number" />
+                    <field name="from_date" />
+                    <field name="to_date" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_rental_order_pivot">
+            <field name="name">rental.order.pivot</field>
+            <field name="model">rental.product.order</field>
+            <field name="arch" type="xml">
+                <pivot string="Rental Orders">
+                    <field name="customer_name" type="row" />
+                    <field name="count" interval="month" type="col" />
+                    <field name="total_amount" type="measure" />
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_rental_order_graph">
+            <field name="name">rental.order.graph</field>
+            <field name="model">rental.product.order</field>
+            <field name="arch" type="xml">
+                <graph string="Rental Orders">
+                    <field name="customer_name" type="row" />
+                    <field name="total_amount" type="col" />
+                </graph>
+            </field>
+        </record>
+
+        <record id="action_product_order_id" model="ir.actions.act_window">
+            <field name="name">Rental Order</field>
+            <field name="res_model">rental.product.order</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="context">{'search_default_undone': 1}</field>
+        </record>
+
+        <record id="action_product_order_id_new" model="ir.actions.act_window">
+            <field name="name">Rental Order</field>
+            <field name="res_model">rental.product.order</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+        <record id="action_rental_order_analysis" model="ir.actions.act_window">
+            <field name="name">Rental Order</field>
+            <field name="res_model">rental.product.order</field>
+            <field name="view_mode">graph,pivot</field>
+        </record>
+
+        <record id="product_booking_calendar" model="ir.ui.view">
+            <field name="name">Rental order</field>
+            <field name="model">rental.product.order</field>
+            <field name="arch" type="xml">
+                <calendar string="product" date_start="from_date" date_stop="to_date" event_open_popup="true" quick_add="false" form_view_id="%(product_rental_bookings.action_product_order_id)s" event_limit="3" color="customer_name" mode="month">
+                    <field name="customer_name" />
+                </calendar>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="action_product_calender_product_booking1" model="ir.actions.client">
+            <field name="name">Product Rental Booking</field>
+            <field name="tag">resource_view_new</field>
+        </record>
+
+        <record id="product_booking_id" model="ir.ui.view">
+            <field name="name">product booking</field>
+            <field name="model">product.booking</field>
+            <field name="arch" type="xml">
+                <form string="product product Booking">
+                    <header>
+                        <button name="search_product" string="Search" type="object" class="oe_highlight" />
+                        <button name="book_product" string="Create" type="object" class="oe_highlight" attrs="{'invisible':[('is_search','=',False)]}" />
+                    </header>
+                    <sheet>
+                        <field name="book_number" invisible="True" />
+                        <group col="4">
+                            <field name="price_based" />
+                            <field name="session_id" attrs="{'invisible':[('price_based','!=','per_session')], 'required':[('price_based','=','per_session')]}" />
+                        </group>
+                        <group col="4" attrs="{'invisible':[('price_based','!=','per_session')]}">
+                            <field name="from_date" required="1" string="Date" />
+                            <field name="to_date" invisible="1" />
+                        </group>
+                        <group col="4" attrs="{'invisible':[('price_based','=','per_session')]}">
+                            <field name="from_date" required="1" />
+                            <field name="to_date" attrs="{'required':[('price_based','!=','per_session')]}" />
+                        </group>
+                        <group col="4">
+                            <field name="location_id" required="1" domain="[('usage', '=', 'internal')]" />
+                            <field name="categ_id" required="1" />
+                            <field name="is_search" invisible="1" />
+                        </group>
+                        <notebook attrs="{'invisible':[('is_search','=',False)]}">
+                            <page name="product_details" string="Product Details">
+                                <field name="product_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="name" />
+                                        <field name="categ_id" />
+                                        <field name="currency_id" invisible="1" />
+                                        <field name="rental_qyt" />
+                                        <field name="rental_amount" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'column_invisible':[('parent.price_based','!=','per_day')]}" />
+                                        <field name="rental_amount_per_hour" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'column_invisible':[('parent.price_based','!=','per_hour')]}" />
+                                        <field name="rental_amount_per_session" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'column_invisible':[('parent.price_based','!=','per_session')]}" />
+                                        <field name="taxes_id" widget="many2many_tags" />
+                                        <field name="selected_product" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group>
+                            <group>
+                                <group>
+                                    <field name="total_days" attrs="{'invisible':['|',('is_search','=',False),('price_based', '!=', 'per_day')]}" />
+                                    <field name="total_hours" widget="float_time" attrs="{'invisible':['|',('is_search','=',False),('price_based', '=', 'per_day')]}" />
+                                </group>
+                            </group>
+                            <group>
+                                <field name="currency_id" invisible="1" />
+                                <field name="extra_charges" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('is_search','=',False)]}" />
+                                <field name="sub_total" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('is_search','=',False)]}" readonly="1" />
+                                <field name="total" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('is_search','=',False)]}" readonly="1" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_quick_product_booking" model="ir.actions.act_window">
+            <field name="name">Product booking</field>
+            <field name="res_model">product.booking</field>
+            <field name="view_mode">form</field>
+        </record>
+    </data>
+</odoo>

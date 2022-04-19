@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_rental_order_report" model="ir.actions.report">
+            <field name="name">Rental/Order</field>
+            <field name="model">rental.product.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">product_rental_bookings.rental_order_template</field>
+            <field name="report_file">product_rental_bookings.rental_order_report</field>
+            <field name="print_report_name">'Rental/Order'</field>
+            <field name="binding_model_id" ref="model_rental_product_order" />
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="product_rental_contract_report" model="ir.actions.report">
+            <field name="name">Rental Contract</field>
+            <field name="model">rental.product.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">product_rental_bookings.rental_contract_report_template</field>
+            <field name="report_file">product_rental_bookings.rental_contract_report</field>
+            <field name="print_report_name">'Rental Contract'</field>
+            <field name="binding_model_id" ref="model_rental_product_contract" />
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="product_contract_recurring_report" model="ir.actions.report">
+            <field name="name">Recurring Invoice</field>
+            <field name="model">rental.product.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">product_rental_bookings.rental_recurring_report_template</field>
+            <field name="report_file">product_rental_bookings.rental_contract_recurring</field>
+            <field name="print_report_name">'Recurring Invoice'</field>
+            <field name="binding_model_id" ref="model_rental_product_contract" />
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>

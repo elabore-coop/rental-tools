@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="rental_product_logs_form_id" model="ir.ui.view">
+            <field name="name">Product Logs</field>
+            <field name="model">rental.product.logs</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product_id" />
+                                <field name="customer_id" />
+                                <field name="from_date" />
+                                <field name="to_date" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rental_product_logs_tree_id" model="ir.ui.view">
+            <field name="name">Product Logs</field>
+            <field name="model">rental.product.logs</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product_id" />
+                    <field name="customer_id" />
+                    <field name="from_date" />
+                    <field name="to_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_logs_pivot">
+            <field name="name">Products Logs</field>
+            <field name="model">rental.product.logs</field>
+            <field name="arch" type="xml">
+                <pivot string="product Logs">
+                    <field name="product_id" type="row" />
+                    <field name="from_date" type="col" />
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_product_logs_graph">
+            <field name="name">Products Logs</field>
+            <field name="model">rental.product.logs</field>
+            <field name="arch" type="xml">
+                <graph string="product Logs">
+                    <field name="product_id" type="row" />
+                    <field name="from_date" type="col" />
+                </graph>
+            </field>
+        </record>
+
+        <record id="action_rental_product_logs" model="ir.actions.act_window">
+            <field name="name">Rental Logs</field>
+            <field name="res_model">rental.product.logs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_rental_product_logs_analysis" model="ir.actions.act_window">
+            <field name="name">product Logs</field>
+            <field name="res_model">rental.product.logs</field>
+            <field name="view_mode">graph,pivot</field>
+        </record>
+
+        <record id="action_rental_product_move" model="ir.actions.act_window">
+            <field name="name">Rental Move</field>
+            <field name="res_model">stock.picking</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_undone': 1}</field>
+            <field name="domain">[('is_rental', '=', True)]</field>
+        </record>
+
+    </data>
+</odoo>

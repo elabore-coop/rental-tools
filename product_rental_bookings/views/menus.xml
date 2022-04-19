@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ROOT -->
+
+        <menuitem id="rental_product_main_menu" name="Rental" web_icon="product_rental_bookings/static/description/book_product.png/" />
+
+        <!-- QUICK SEARCH -->
+
+        <menuitem id="feet_product_quick_booking_menu" name="Quick Search" parent="rental_product_main_menu" sequence="0" action="action_product_quick_product_booking" />
+
+        <!-- PRODUCTS -->
+
+        <menuitem id="product_product_product" name="Product" parent="rental_product_main_menu" sequence="1" action="product.product_normal_action_sell" />
+
+        <!-- BOOKING -->
+
+        <menuitem id="rental_product_booking_menu" name="Rental" parent="rental_product_main_menu" sequence="2" />
+
+        <menuitem id="product_order_menu" name="Rental Orders" parent="rental_product_booking_menu" sequence="0" action="action_product_order_id" />
+
+        <menuitem id="feet_product_contract_sub_menu" name="Rental Contracts" parent="rental_product_booking_menu" sequence="1" action="action_rental_product_contract" />
+
+        <menuitem id="feet_product_calender_booking_menu" name="Rental Bookings" parent="rental_product_booking_menu" sequence="2" action="action_product_calender_product_booking1" />
+
+        <menuitem id="feet_product_logs_menu" name="Rental Logs" parent="rental_product_booking_menu" sequence="3" action="action_rental_product_logs" />
+
+        <!-- INVENTORY -->
+
+        <menuitem id="rental_product_inventory_menu" name="Inventory" parent="rental_product_main_menu" sequence="3" />
+
+        <menuitem id="stock_inventory_sub_menu" name="Stock inventory" parent="rental_product_inventory_menu" sequence="1" action="stock.action_view_quants" />
+
+        <!-- ANALYSIS -->
+
+        <menuitem id="rental_product_analysis" name="Analysis" parent="rental_product_main_menu" sequence="5" />
+
+        <menuitem id="product_rental_order_analysis" name="Rental Orders" parent="rental_product_analysis" action="action_rental_order_analysis" sequence="2" />
+
+        <menuitem id="feet_product_logs_analysis" name="Rental Log" parent="rental_product_analysis" action="action_rental_product_logs_analysis" />
+
+
+        <!-- SETTINGS -->
+
+        <menuitem id="product_configuration_menu" name="Configuration" parent="rental_product_main_menu" sequence="10" />
+
+        <menuitem id="rental_product_branch_menu" name="Operation" parent="product_configuration_menu" />
+
+        <menuitem id="menu_operation_type" name="Operations Types" parent="rental_product_branch_menu" action="action_picking_type_list" sequence="4" />
+
+        <menuitem id="rental_menu_configuration" name="Settings" parent="product_configuration_menu" sequence="0" action="rental_config_settings_action" groups="base.group_system" />
+
+        <menuitem id="menu_session_config" name="Session Configuration" parent="product_configuration_menu" action="action_session_config" sequence="4" />
+
+    </data>
+</odoo>

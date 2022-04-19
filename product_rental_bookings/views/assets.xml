@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="rental_delivery_sign assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/product_rental_bookings/static/src/js/fabric.min.js" />
+                <script type="text/javascript" src="/product_rental_bookings/static/src/js/product_contract_sign.js" />
+                <link rel="stylesheet" href="/product_rental_bookings/static/src/css/backend.css" id="pos-stylesheet" />
+            </xpath>
+        </template>
+
+        <template id="fullcalender_assests_backend" name="rental_fullcalender" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/product_rental_bookings/static/src/css/fullcalendar.css" />
+                <link rel="stylesheet" href="/product_rental_bookings/static/src/css/scheduler.css" />
+                <link rel="stylesheet" href="/product_rental_bookings/static/src/css/scheduler.min.css" />
+
+                <script type="text/javascript" src="/product_rental_bookings/static/src/js/lib/fullcalendar.js" />
+                <script type="text/javascript" src="/product_rental_bookings/static/src/js/lib/scheduler.js" />
+                <script type="text/javascript" src="/product_rental_bookings/static/src/js/product_booking_calender.js" />
+            </xpath>
+        </template>
+    </data>
+</odoo>

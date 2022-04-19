@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="product_normal_form_view_inherit" model="ir.ui.view">
+            <field name="name">Product Variant</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='purchase_ok']/parent::div" position="after">
+                    <div>
+                        <field name="is_rental" />
+                        <label for="is_rental" />
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='uom_po_id']" position="after">
+                    <field name="rental_amount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                    <field name="rental_amount_per_hour" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                    <field name="rental_amount_per_session" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

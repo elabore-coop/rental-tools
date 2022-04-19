@@ -1,0 +1,24 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rental_product_order,access_rental_product_order,model_rental_product_order,,1,1,1,1
+access_product_book,access_product_book,model_product_booking,,1,1,1,1
+access_product_order_line,access_product_order_line,model_product_order_line,,1,1,1,1
+access_rental_product_contract,access_rental_product_contract,model_rental_product_contract,,1,1,1,1
+access_product_contract_lines,access_product_contract_lines,model_product_contract_lines,base.group_user,1,1,1,1
+access_rental_product_operation,access_rental_product_operation,model_rental_product_operation,,1,1,1,1
+access_product_rental_line,access_product_rental_line,model_product_rental_line,,1,1,1,1
+access_rental_product_logs,access_rental_product_logs,model_rental_product_logs,,1,1,1,1
+access_customer_document,access_customer_document,model_customer_document,base.group_user,1,1,1,1
+access_rental_policy,access_rental_policy,model_rental_policy,base.group_user,1,1,1,1
+access_wizard_product_service,access_wizard_product_service,model_wizard_product_service,base.group_user,1,1,1,1
+access_product_advance_payment_invoice,access_product_advance_payment_invoice,model_product_advance_payment_invoice,base.group_user,1,1,1,1
+access_product_category_portal_user,access_product_category_portal_user,product.model_product_category,base.group_portal,1,1,1,1
+access_product_category_public,access_product_category_public,product.model_product_category,base.group_public,1,0,1,0
+access_product_product_portal,access_product_product_portal,product.model_product_product,base.group_portal,1,0,1,0
+access_product_product_public,access_product_product_public,product.model_product_product,base.group_public,1,0,1,0
+access_product_template_portal,access_product_template_portal,product.model_product_template,base.group_portal,1,0,1,0
+access_product_template_public,access_product_template_public,product.model_product_template,base.group_public,1,0,1,0
+access_ir_sequence_group_public,access_ir_sequence group_public,base.model_ir_sequence,base.group_public,1,0,1,0
+access_ir_sequence_group_portal,access_ir_sequence_group_portal,base.model_ir_sequence,,base.group_portal,1,0,1,0
+access_stock_quant_group_public,access_stock_quant group_public,stock.model_stock_quant,base.group_public,1,0,1,0
+access_stock_quant_group_portal,access_stock_quant_group_portal,stock.model_stock_quant,,base.group_portal,1,0,1,0
+access_session_config,access_session_config,model_session_config,base.group_user,1,1,1,1
