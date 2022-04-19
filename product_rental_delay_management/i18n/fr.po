@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_rental_delay_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 14:44+0000\n"
+"PO-Revision-Date: 2021-09-29 14:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__delay_cost_per_hour
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__delay_cost_per_hour
+msgid "Cost/Hour"
+msgstr "Tarif horaire"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__create_uid
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__create_uid
+msgid "Created by"
+msgstr "Créer par"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__create_date
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__create_date
+msgid "Created on"
+msgstr "Créer le"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__delayed_amount
+msgid "Delayed Amount"
+msgstr ""
+
+#. module: product_rental_delay_management
+#: model_terms:ir.ui.view,arch_db:product_rental_delay_management.stock_picking_form_inherit
+msgid "Delayed Hours"
+msgstr ""
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_stock_picking__product_delay_line_ids
+msgid "Delayed Hours "
+msgstr ""
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__name
+msgid "Description"
+msgstr "Description"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__display_name
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields.selection,name:product_rental_delay_management.selection__product_delayed__invoice_state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__id
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__id
+msgid "ID"
+msgstr ""
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__invoice_state
+msgid "Invoice State"
+msgstr "État de la facture"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_stock_picking__is_delayed
+msgid "Is Delayed"
+msgstr "Est reporté"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed____last_update
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__write_uid
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__write_date
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: product_rental_delay_management
+#: model:ir.model,name:product_rental_delay_management.model_product_delayed
+msgid "Product Delayed"
+msgstr ""
+
+#. module: product_rental_delay_management
+#: model:ir.model,name:product_rental_delay_management.model_product_delayed_lines
+msgid "Product Delayed Lines"
+msgstr ""
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__product_delay_id
+msgid "Product Move"
+msgstr "Mouvement du produit"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__product_id
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__product_id
+msgid "Product Name"
+msgstr "Nom du produit"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__products_checked
+msgid "Select Products"
+msgstr "Sélectionner les produits"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__sub_total
+msgid "Sub Total"
+msgstr "Sous-total"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields.selection,name:product_rental_delay_management.selection__product_delayed__invoice_state__to_invoice
+msgid "To Invoice"
+msgstr "A facturer"
+
+#. module: product_rental_delay_management
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed__delayed_hours
+#: model:ir.model.fields,field_description:product_rental_delay_management.field_product_delayed_lines__delayed_hours
+msgid "Total Hours"
+msgstr "Nombre d'heures totales"

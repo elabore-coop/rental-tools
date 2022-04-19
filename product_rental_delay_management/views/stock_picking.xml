@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="stock_picking_form_inherit" model="ir.ui.view">
+            <field name="name">view.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='picking_type_id']" position="after">
+                    <field name="is_delayed" attrs="{'invisible': [('state', 'in', ['waiting', 'assigned', 'done', 'cancel'])]}" />
+                </xpath>
+
+                <xpath expr="//page[@name='operations']" position="after">
+                    <page string="Delayed Hours" attrs="{'invisible':[('is_delayed','=',False)]}">
+                        <group>
+                            <field name="product_delay_line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="product_delay_id" invisible="1" />
+                                    <field name="product_id" />
+                                    <field name="delay_cost_per_hour" />
+                                    <field name="delayed_hours" widget="float_time" />
+                                    <field name="sub_total" />
+                                </tree>
+                            </field>
+                        </group>
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="delay_cost_total">
+                            <div class="oe_subtotal_footer_separator oe_inline o_td_label" invisible="1">
+                                <label for="total_amount" />
+                            </div>
+                            <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' />
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
