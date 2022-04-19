@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id='rental_product_contract_deposit_form' model="ir.ui.view">
+            <field name="name">Rental Contracts Deposit</field>
+            <field name="model">rental.product.contract</field>
+            <field name="inherit_id" ref="product_rental_bookings.rental_product_contract_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='account_payment_term']" position="after">
+                    <field name="security_deposit" widget="monetary" options="{'currency_field': 'currency_id'}" invisible="1" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
