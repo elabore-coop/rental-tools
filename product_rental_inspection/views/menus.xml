@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="product_inspection_analysis" name="Inspections" parent="product_rental_bookings.rental_product_analysis" action="action_product_inspection_analysis" sequence="4" />
+
+    </data>
+</odoo>

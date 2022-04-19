@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rental_product_inspection,access_rental_product_inspection,model_rental_product_inspection,,1,1,1,1
+access_product_delayed,access_product_delayed,model_product_delayed,base.group_user,1,1,1,1

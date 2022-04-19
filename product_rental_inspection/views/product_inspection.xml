@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="rental_product_inspection_search" model="ir.ui.view">
+            <field name="name">Product Inspection</field>
+            <field name="model">rental.product.inspection</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ref_number" filter_domain="[('name','ilike',self)]" string="Name" />
+                    <field name="customer_id" filter_domain="[('customer_id','ilike',self)]" string="Customer" />
+                    <filter string="Undone" name="undone" domain="[('state','!=','done')]" />
+                    <filter string="Reference Number" name="move_type" domain="[]" context="{'group_by': 'source_document'}" />
+                </search>
+            </field>
+        </record>
+
+        <record id="rental_product_inspection_form_id" model="ir.ui.view">
+            <field name="name">Product Inspection</field>
+            <field name="model">rental.product.inspection</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" />
+                        <button name="done" string="Mark as Done" type="object" class="oe_highlight" states="ready" />
+                        <button name="pause" string="Pause Inspection" type="object" class="oe_highlight" states="ready" />
+                        <button name="resume" string="Resume Inspection" type="object" class="oe_highlight" states="pause" />
+                        <button name="create_invoice" type="object" string="Create Invoice" class="oe_highlight" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="ref_number" placeholder="Inspection Number" readonly="1" />
+                            </h1>
+                            <h1>
+                                <field name="product_id" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="customer_id" />
+                                <field name="phone" />
+                                <field name="location_id" />
+                                <!--                                <field name="total_charged_amount" invisible="1"/>-->
+                            </group>
+                            <group>
+                                <field name="date" />
+                                <field name="source_document" />
+                                <field name="responsible_person_id" />
+                                <field name="total_delayed_amount" invisible="1" />
+                                <field name="total_fuel_charged" invisible="1" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rental_product_inspection_tree_id" model="ir.ui.view">
+            <field name="name">Product Inspection</field>
+            <field name="model">rental.product.inspection</field>
+            <field name="arch" type="xml">
+                <tree decoration-muted="state=='done'" decoration-info="state=='pause'" decoration-danger="state=='ready'">
+                    <field name="ref_number" />
+                    <field name="product_id" />
+                    <field name="source_document" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_rental_order_pivot">
+            <field name="name">rental.product.inspection.pivot</field>
+            <field name="model">rental.product.inspection</field>
+            <field name="arch" type="xml">
+                <pivot string="Inspection Analysis">
+                    <field name="product_id" type="row" />
+                    <field name="date" type="col" />
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_rental_order_graph">
+            <field name="name">rental.product.inspection.pivot</field>
+            <field name="model">rental.product.inspection</field>
+            <field name="arch" type="xml">
+                <graph string="Inspection Analysis">
+                    <field name="product_id" type="row" />
+                    <field name="date" type="col" />
+                </graph>
+            </field>
+        </record>
+
+        <record id="action_product_inspection_move" model="ir.actions.act_window">
+            <field name="name">Rental Inspection</field>
+            <field name="res_model">rental.product.inspection</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_undone': 1}</field>
+        </record>
+
+        <record id="action_product_inspection_analysis" model="ir.actions.act_window">
+            <field name="name">Rental Inspection</field>
+            <field name="res_model">rental.product.inspection</field>
+            <field name="view_mode">pivot,graph</field>
+        </record>
+
+    </data>
+</odoo>

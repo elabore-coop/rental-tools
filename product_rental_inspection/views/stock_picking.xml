@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="stock_picking_form_inherit_inspection" model="ir.ui.view">
+            <field name="name">view.picking.form.inherit.inspection</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="product_rental_bookings.stock_picking_form_inherit" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='delivery']" position="after">
+                    <button name="action_view_inspections" attrs="{'invisible': [('state', 'in', ['draft','waiting', 'confirmed', 'done', 'cancel']),
+                             ]}" string="Inspections Created" type="object" class="oe_highlight" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

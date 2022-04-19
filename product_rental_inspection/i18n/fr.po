@@ -1,0 +1,263 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_rental_inspection
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 14:44+0000\n"
+"PO-Revision-Date: 2021-09-29 14:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_rental_inspection
+#: model:ir.actions.report,print_report_name:product_rental_inspection.report_inspection_pass
+msgid "'Inspection Report'"
+msgstr "'Rapport d'inspection'"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.inspection_report_template
+msgid "#No."
+msgstr "#Num"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.inspection_report_template
+msgid ""
+"<strong>Inspection Date:</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Date d'inspection :</strong>\n"
+"                                <br/>"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.inspection_report_template
+msgid ""
+"<strong>Responsible:</strong>\n"
+"                                <br/>"
+msgstr ""
+"<strong>Responsable :</strong>\n"
+"                                <br/>"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.inspection_report_template
+msgid ""
+"<strong>Source Document:</strong>\n"
+"                                <br/>"
+"<strong>Document source :</strong>\n"
+"                                <br/>"
+
+#. module: product_rental_inspection
+#: code:addons/product_rental_inspection/models/product_contract.py:0
+#: code:addons/product_rental_inspection/models/product_inspection.py:0
+#, python-format
+msgid "Account Move"
+msgstr "Mouvement de compte"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_form_id
+msgid "Create Invoice"
+msgstr "Créer une facture"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__create_uid
+msgid "Created by"
+msgstr "Créer par"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__create_date
+msgid "Created on"
+msgstr "Créer le"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__customer_id
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__date
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.product_booking_id
+msgid "Date"
+msgstr "Date"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__total_delayed_amount
+msgid "Delayed Amount"
+msgstr ""
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__delayed_line_ids
+msgid "Delayed Lines"
+msgstr ""
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields.selection,name:product_rental_inspection.selection__rental_product_inspection__state__done
+#: model:ir.model.fields.selection,name:product_rental_inspection.selection__rental_product_operation__state__done
+msgid "Done"
+msgstr "Fait"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__total_fuel_charged
+msgid "Fuel Charged Amount"
+msgstr "Montant frais carburant"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__id
+msgid "ID"
+msgstr ""
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_product_delayed__inspection_id
+msgid "Inspection"
+msgstr ""
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.view_rental_order_graph
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.view_rental_order_pivot
+msgid "Inspection Analysis"
+msgstr "Analyse d'inspection"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_form_id
+msgid "Inspection Number"
+msgstr "Numéro d'inspection"
+
+#. module: product_rental_inspection
+#: model:ir.actions.report,name:product_rental_inspection.report_inspection_pass
+msgid "Inspection Report"
+msgstr "Rapport d'inspection"
+
+#. module: product_rental_inspection
+#: model:ir.ui.menu,name:product_rental_inspection.product_inspection_analysis
+msgid "Inspections"
+msgstr ""
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.stock_picking_form_inherit
+msgid "Inspections Created"
+msgstr "Inspections créées"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__write_date
+msgstr "Dernière mise à jour le"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__location_id
+msgid "Location"
+msgstr "Point de vente"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_form_id
+msgid "Mark as Done"
+msgstr "Marqué comme Fait"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_search
+msgid "Name"
+msgstr "Nom"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_form_id
+msgid "Pause Inspection"
+msgstr "Mettre en pause l'inspection"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields.selection,name:product_rental_inspection.selection__rental_product_inspection__state__pause
+msgid "Paused"
+msgstr "En pause"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__phone
+msgid "Phone Number"
+msgstr "Numéro de téléphone"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: product_rental_inspection
+#: code:addons/product_rental_inspection/models/product_inspection.py:0
+#: model:ir.model,name:product_rental_inspection.model_rental_product_inspection
+#, python-format
+msgid "Product Inspection"
+msgstr "Inspection du produit"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.inspection_report_template
+msgid "Product:"
+msgstr "Produit :"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields.selection,name:product_rental_inspection.selection__rental_product_inspection__state__ready
+msgid "Ready"
+msgstr "Prêt"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__ref_number
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_search
+msgid "Reference Number"
+msgstr "Numéro de référence"
+
+#. module: product_rental_inspection
+#: code:addons/product_rental_inspection/models/stock_picking.py:0
+#: model:ir.actions.act_window,name:product_rental_inspection.action_product_inspection_analysis
+#: model:ir.actions.act_window,name:product_rental_inspection.action_product_inspection_move
+#, python-format
+msgid "Rental Inspection"
+msgstr "Inspection de location"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__responsible_person_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_form_id
+msgid "Resume Inspection"
+msgstr "Reprendre l'inspection"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__source_document
+msgid "Source Document"
+msgstr "Document source"
+
+#. module: product_rental_inspection
+#: model:ir.model.fields,field_description:product_rental_inspection.field_rental_product_inspection__state
+msgid "State"
+msgstr "État"
+
+#. module: product_rental_inspection
+#: model_terms:ir.ui.view,arch_db:product_rental_inspection.rental_product_inspection_search
+msgid "Undone"
+msgstr "Revenir en arrière"
